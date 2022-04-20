@@ -1,0 +1,150 @@
+{
+    "namespace": "codbex",
+    "entities": [
+        {
+            "name": "Currency",
+            "alias": "Currency",
+            "table": "CODBEX_CURRENCY",
+            "properties": [
+                {
+                    "name": "Code",
+                    "column": "CURRENCY_CODE"
+                },
+                {
+                    "name": "Name",
+                    "column": "CURRENCY_NAME",
+                    "nullable": true
+                },
+                {
+                    "name": "Numeric",
+                    "column": "CURRENCY_NUMERIC",
+                    "nullable": false
+                },
+                {
+                    "name": "Rounding",
+                    "column": "CURRENCY_ROUNDING",
+                    "nullable": true
+                },
+                {
+                    "name": "Active",
+                    "column": "CURRENCY_ACTIVE",
+                    "nullable": true
+                }
+            ],
+            "navigations": [
+                {
+                    "name": "CurrencyEntity",
+                    "association": "CurrencyCurrencyEntity"
+                },
+                {
+                    "name": "CurrencyExchange",
+                    "association": "CurrencyCurrencyExchange"
+                },
+                {
+                    "name": "CurrencyExchange",
+                    "association": "CurrencyCurrencyExchange"
+                }
+            ]
+        },
+        {
+            "name": "CurrencyEntity",
+            "alias": "CurrencyEntity",
+            "table": "CODBEX_CURRENCYENTITY",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "CURRENCYENTITY_ID"
+                },
+                {
+                    "name": "Name",
+                    "column": "CURRENCYENTITY_NAME",
+                    "nullable": true
+                },
+                {
+                    "name": "CurrencyCode",
+                    "column": "CURRENCYENTITY_CODE",
+                    "nullable": true
+                }
+            ],
+            "navigations": []
+        },
+        {
+            "name": "CurrencyExchange",
+            "alias": "CurrencyExchange",
+            "table": "CODBEX_CURRENCYEXCHANGE",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "CURRENCYEXCHANGE_ID"
+                },
+                {
+                    "name": "Source",
+                    "column": "CURRENCYEXCHANGE_SOURCE",
+                    "nullable": true
+                },
+                {
+                    "name": "Target",
+                    "column": "CURRENCYEXCHANGE_TARGET",
+                    "nullable": true
+                },
+                {
+                    "name": "Rate",
+                    "column": "CURRENCYEXCHANGE_RATE",
+                    "nullable": true
+                },
+                {
+                    "name": "Date",
+                    "column": "CURRENCYEXCHANGE_DATE",
+                    "nullable": true
+                },
+                {
+                    "name": "Level",
+                    "column": "CURRENCYEXCHANGE_LEVEL",
+                    "nullable": true
+                }
+            ],
+            "navigations": []
+        }
+    ],
+    "associations": [
+        {
+            "name": "CurrencyCurrencyEntity",
+            "from": {
+                "entity": "Currency",
+                "property": "Code",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "CurrencyEntity",
+                "property": "CurrencyCode",
+                "multiplicity": "*"
+            }
+        },
+        {
+            "name": "CurrencyCurrencyExchange",
+            "from": {
+                "entity": "Currency",
+                "property": "Code",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "CurrencyExchange",
+                "property": "Source",
+                "multiplicity": "*"
+            }
+        },
+        {
+            "name": "CurrencyCurrencyExchange",
+            "from": {
+                "entity": "Currency",
+                "property": "Code",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "CurrencyExchange",
+                "property": "Target",
+                "multiplicity": "*"
+            }
+        }
+    ]
+}

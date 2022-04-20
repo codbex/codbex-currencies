@@ -1,0 +1,4 @@
+{
+	"description": "Extension Point for the Currencies View Providers",
+	"name": "launchpad-codbex-Currencies-view"
+}

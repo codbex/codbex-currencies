@@ -1,0 +1,24 @@
+[
+  {
+    "table": "CODBEX_CURRENCY",
+    "schema": "PUBLIC",
+    "file": "/codbex-currencies/currencies.csv",
+    "header": true,
+    "useHeaderNames": true,
+    "delimField": ",",
+    "delimEnclosing": "\"",
+    "distinguishEmptyFromNull": true,
+    "keys": []
+  },
+  {
+    "table": "CODBEX_CURRENCYENTITY",
+    "schema": "PUBLIC",
+    "file": "/codbex-currencies/currencies-entities.csv",
+    "header": true,
+    "useHeaderNames": true,
+    "delimField": ",",
+    "delimEnclosing": "\"",
+    "distinguishEmptyFromNull": true,
+    "keys": []
+  }
+]

@@ -1,0 +1,138 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_CURRENCY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "primaryKey": true,
+                        "name": "CURRENCY_CODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 127,
+                        "nullable": true,
+                        "name": "CURRENCY_NAME"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "name": "CURRENCY_NUMERIC"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CURRENCY_ROUNDING"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CURRENCY_ACTIVE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CURRENCYENTITY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCYENTITY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 127,
+                        "nullable": true,
+                        "name": "CURRENCYENTITY_NAME"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "CURRENCYENTITY_CODE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CURRENCYEXCHANGE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCYEXCHANGE_ID"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "CURRENCYEXCHANGE_SOURCE"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "CURRENCYEXCHANGE_TARGET"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CURRENCYEXCHANGE_RATE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CURRENCYEXCHANGE_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "CURRENCYEXCHANGE_LEVEL"
+                    }
+                ]
+            },
+            {
+                "name": "CurrencyEntity_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_CURRENCYENTITY",
+                "constraintName": "CurrencyEntity_Currency",
+                "columns": "CURRENCYENTITY_CODE",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_CODE"
+            },
+            {
+                "name": "CurrencyExchange_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_CURRENCYEXCHANGE",
+                "constraintName": "CurrencyExchange_Currency",
+                "columns": "CURRENCYEXCHANGE_SOURCE",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_CODE"
+            },
+            {
+                "name": "CurrencyExchange_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_CURRENCYEXCHANGE",
+                "constraintName": "CurrencyExchange_Currency",
+                "columns": "CURRENCYEXCHANGE_TARGET",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_CODE"
+            }
+        ]
+    }
+}
