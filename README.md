@@ -1,0 +1,2 @@
+# codbex-currencies
+Currencies Module
