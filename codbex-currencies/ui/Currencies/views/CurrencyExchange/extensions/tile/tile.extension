@@ -1,5 +1,0 @@
-{
-	"description": "Currencies tiles",
-	"extensionPoint": "launchpad-codbex-tiles",
-	"module": "codbex-currencies/ui/Currencies/views/CurrencyExchange/extensions/tile/tile.js"
-}

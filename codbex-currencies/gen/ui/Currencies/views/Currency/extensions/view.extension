@@ -1,0 +1,5 @@
+{
+	"description": "Currency view",
+	"extensionPoint": "launchpad-codbex-Currencies-view",
+	"module": "codbex-currencies/gen/ui/Currencies/views/Currency/extensions/view.js"
+}

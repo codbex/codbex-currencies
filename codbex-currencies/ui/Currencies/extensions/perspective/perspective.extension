@@ -1,5 +1,0 @@
-{
-	"description": "Currencies perspective",
-	"extensionPoint": "launchpad-codbex-perspective",
-	"module": "codbex-currencies/ui/Currencies/extensions/perspective/perspective.js"
-}
