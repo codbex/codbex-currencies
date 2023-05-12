@@ -1,5 +1,0 @@
-{
-	"description": "CurrencyExchange menu",
-	"extensionPoint": "shell-codbex-currencies-menu",
-	"module": "codbex-currencies/views/CurrencyExchange/menu/item.js"
-}

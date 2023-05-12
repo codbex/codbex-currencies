@@ -9,8 +9,10 @@
                         "dataLength": "3",
                         "dataName": "CURRENCY_CODE",
                         "dataNullable": "false",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "true",
-                        "dataType": "CHAR",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
                         "dataUnique": "true",
                         "isCalculatedProperty": "false",
                         "name": "Code",
@@ -39,8 +41,10 @@
                         "dataLength": "3",
                         "dataName": "CURRENCY_NUMERIC",
                         "dataNullable": "false",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
-                        "dataType": "CHAR",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
                         "dataUnique": "true",
                         "isCalculatedProperty": "false",
                         "name": "Numeric",
@@ -79,8 +83,9 @@
                         "widgetType": "CHECKBOX"
                     }
                 ],
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM CODBEX_CURRENCY",
-                "dataName": "CODBEX_CURRENCY",
+                "caption": "Manage entity Currency",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM ￢ﾀﾜ${tablePrefix}_tableName￢ﾀﾝ",
+                "dataName": "CURRENCY",
                 "dataQuery": "",
                 "icon": "dollar",
                 "layoutType": "MANAGE",
@@ -88,80 +93,12 @@
                 "menuKey": "currency",
                 "menuLabel": "Currency",
                 "name": "Currency",
-                "perspectiveIcon": "dollar",
-                "perspectiveName": "Currencies",
-                "perspectiveOrder": "980",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
+                "perspectiveName": "currency",
+                "perspectiveOrder": "100",
                 "title": "Currency",
                 "tooltip": "Currency",
-                "type": "PRIMARY"
-            },
-            {
-                "properties": [
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "true",
-                        "dataLength": "0",
-                        "dataName": "CURRENCYENTITY_ID",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "true",
-                        "dataType": "INTEGER",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "Id",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "false",
-                        "dataLength": "127",
-                        "dataName": "CURRENCYENTITY_NAME",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "false",
-                        "dataType": "VARCHAR",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "127",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "false",
-                        "dataLength": "3",
-                        "dataName": "CURRENCYENTITY_CODE",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "false",
-                        "dataType": "CHAR",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "CurrencyCode",
-                        "widgetDropDownKey": "Code",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "CurrencyEntity_Currency",
-                        "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Currencies"
-                    }
-                ],
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM CODBEX_CURRENCYENTITY",
-                "dataName": "CODBEX_CURRENCYENTITY",
-                "dataQuery": "",
-                "icon": "euro",
-                "layoutType": "MANAGE",
-                "menuIndex": "100",
-                "menuKey": "currencyentity",
-                "menuLabel": "CurrencyEntity",
-                "name": "CurrencyEntity",
-                "perspectiveIcon": "dollar",
-                "perspectiveName": "Currencies",
-                "perspectiveOrder": "980",
-                "title": "CurrencyEntity",
-                "tooltip": "CurrencyEntity",
                 "type": "PRIMARY"
             },
             {
@@ -187,8 +124,10 @@
                         "dataLength": "3",
                         "dataName": "CURRENCYEXCHANGE_SOURCE",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
-                        "dataType": "CHAR",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Source",
@@ -199,7 +138,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "CurrencyExchange_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Currencies"
+                        "relationshipEntityPerspectiveName": "currency"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -207,8 +146,10 @@
                         "dataLength": "3",
                         "dataName": "CURRENCYEXCHANGE_TARGET",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
-                        "dataType": "CHAR",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "name": "Target",
@@ -219,7 +160,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "CurrencyExchange_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Currencies"
+                        "relationshipEntityPerspectiveName": "currency"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -267,8 +208,9 @@
                         "widgetType": "NUMBER"
                     }
                 ],
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM CODBEX_CURRENCYEXCHANGE",
-                "dataName": "CODBEX_CURRENCYEXCHANGE",
+                "caption": "Manage entity CurrencyExchange",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM ￢ﾀﾜ${tablePrefix}_tableName￢ﾀﾝ",
+                "dataName": "CURRENCYEXCHANGE",
                 "dataQuery": "",
                 "icon": "arrows-h",
                 "layoutType": "MANAGE",
@@ -276,13 +218,35 @@
                 "menuKey": "currencyexchange",
                 "menuLabel": "CurrencyExchange",
                 "name": "CurrencyExchange",
-                "perspectiveIcon": "dollar",
-                "perspectiveName": "Currencies",
-                "perspectiveOrder": "980",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/exchange.svg",
+                "perspectiveName": "currencyexchange",
+                "perspectiveOrder": "102",
                 "title": "CurrencyExchange",
                 "tooltip": "CurrencyExchange",
                 "type": "PRIMARY"
             }
-        ]
+        ],
+        "perspectives": [
+            {
+                "name": "currency",
+                "label": "Currency",
+                "icon": "/services/web/resources/unicons/dollar-alt.svg",
+                "order": "100"
+            },
+            {
+                "name": "currencyentity",
+                "label": "Currency Entity",
+                "icon": "/services/web/resources/unicons/briefcase.svg",
+                "order": "101"
+            },
+            {
+                "name": "currencyexchange",
+                "label": "Currency Exchange",
+                "icon": "/services/web/resources/unicons/exchange.svg",
+                "order": "102"
+            }
+        ],
+        "navigations": []
     }
 }

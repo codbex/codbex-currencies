@@ -1,5 +1,5 @@
 {
-  "files":[
+  "files": [
     {
       "table": "CODBEX_CURRENCY",
       "schema": "PUBLIC",
@@ -8,19 +8,7 @@
       "useHeaderNames": true,
       "delimField": ",",
       "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
-    },
-    {
-      "table": "CODBEX_CURRENCYENTITY",
-      "schema": "PUBLIC",
-      "file": "/codbex-currencies-data/currencies-entities.csv",
-      "header": true,
-      "useHeaderNames": true,
-      "delimField": ",",
-      "delimEnclosing": "\"",
-      "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "distinguishEmptyFromNull": true
     }
   ]
 }
