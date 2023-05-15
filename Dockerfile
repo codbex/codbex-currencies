@@ -5,4 +5,4 @@ FROM ghcr.io/codbex/codbex-gaia:latest
 
 COPY codbex-currencies target/dirigible/repository/root/registry/public/codbex-currencies
 
-ENV DIRIGIBLE_HOME_URL=/codbex-currencies/gen/index.html
+ENV DIRIGIBLE_HOME_URL=/services/web/codbex-currencies/gen/index.html
