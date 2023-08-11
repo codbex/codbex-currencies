@@ -7,7 +7,7 @@ version: 2
 
 updates:
   - package-ecosystem: docker
-    directory: "/application"
+    directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
