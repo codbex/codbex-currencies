@@ -1,7 +1,7 @@
 # Docker descriptor for codbex-currencies
 # License - http://www.eclipse.org/legal/epl-v20.html
 
-FROM ghcr.io/codbex/codbex-gaia:latest
+FROM ghcr.io/codbex/codbex-gaia:0.5.0
 
 COPY codbex-currencies target/dirigible/repository/root/registry/public/codbex-currencies
 
