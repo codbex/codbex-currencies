@@ -4,12 +4,12 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "codbex-currencies-home-launchpad",
-    label: "Home Launchpad",
+    id: "Currency",
+    label: "Currency",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-currencies/gen/ui/launchpad/Home/index.html",
-    isLaunchpad: true,
+    link: "/services/web/codbex-currencies/gen/ui/Currencies/Currency/index.html",
+    perspectiveName: "Currencies"
 };
 
 if (typeof exports !== 'undefined') {

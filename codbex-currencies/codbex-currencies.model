@@ -95,8 +95,8 @@
                 "name": "Currency",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
-                "perspectiveName": "currency",
-                "perspectiveOrder": "100",
+                "perspectiveName": "Currencies",
+                "perspectiveOrder": "990",
                 "title": "Currency",
                 "tooltip": "Currency",
                 "type": "PRIMARY"
@@ -138,7 +138,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "CurrencyExchange_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "currency"
+                        "relationshipEntityPerspectiveName": "Currencies"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -160,7 +160,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "CurrencyExchange_Currency",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "currency"
+                        "relationshipEntityPerspectiveName": "Currencies"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -219,9 +219,9 @@
                 "menuLabel": "CurrencyExchange",
                 "name": "CurrencyExchange",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/exchange.svg",
-                "perspectiveName": "currencyexchange",
-                "perspectiveOrder": "102",
+                "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
+                "perspectiveName": "Currencies",
+                "perspectiveOrder": "990",
                 "title": "CurrencyExchange",
                 "tooltip": "CurrencyExchange",
                 "type": "PRIMARY"
@@ -229,22 +229,10 @@
         ],
         "perspectives": [
             {
-                "name": "currency",
-                "label": "Currency",
+                "name": "Currencies",
+                "label": "Currencies",
                 "icon": "/services/web/resources/unicons/dollar-alt.svg",
-                "order": "100"
-            },
-            {
-                "name": "currencyentity",
-                "label": "Currency Entity",
-                "icon": "/services/web/resources/unicons/briefcase.svg",
-                "order": "101"
-            },
-            {
-                "name": "currencyexchange",
-                "label": "Currency Exchange",
-                "icon": "/services/web/resources/unicons/exchange.svg",
-                "order": "102"
+                "order": "990"
             }
         ],
         "navigations": []
