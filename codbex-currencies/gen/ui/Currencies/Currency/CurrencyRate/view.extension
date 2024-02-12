@@ -1,0 +1,5 @@
+{
+    "module": "codbex-currencies/gen/ui/Currencies/Currency/CurrencyRate/view.js",
+    "extensionPoint": "codbex-currencies-view",
+    "description": "codbex-currencies - Application View - Details"
+}

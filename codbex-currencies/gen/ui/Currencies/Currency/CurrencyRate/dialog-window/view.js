@@ -4,9 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Currency-details",
-    label: "Currency",
-    link: "/services/web/codbex-currencies/gen/ui/Currencies/Currency/dialog-window/index.html",
+    id: "CurrencyRate-details",
+    label: "CurrencyRate",
+    link: "/services/web/codbex-currencies/gen/ui/Currencies/Currency/CurrencyRate/dialog-window/index.html",
     perspectiveName: "Currencies"
 };
 

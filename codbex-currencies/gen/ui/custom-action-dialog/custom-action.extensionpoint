@@ -1,0 +1,4 @@
+{
+    "name": "codbex-currencies-custom-action",
+    "description": "codbex-currencies - Extension Point for the Application Custom Action Providers"
+}

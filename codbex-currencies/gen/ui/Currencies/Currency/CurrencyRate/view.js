@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "CurrencyExchange",
-    label: "CurrencyExchange",
+    id: "CurrencyRate",
+    label: "CurrencyRate",
     factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-currencies/gen/ui/Currencies/CurrencyExchange/index.html",
+    region: "bottom",
+    link: "/services/web/codbex-currencies/gen/ui/Currencies/Currency/CurrencyRate/index.html",
     perspectiveName: "Currencies"
 };
 

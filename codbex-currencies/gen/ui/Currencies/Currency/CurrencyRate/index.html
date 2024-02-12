@@ -16,21 +16,22 @@
 	</head>
 
 	<body class="dg-vbox">
-		<fd-toolbar has-title="true">
-			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
-			<fd-toolbar-spacer></fd-toolbar-spacer>
-			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"></fd-button>
-		</fd-toolbar>
+		<fd-message-page glyph="sap-icon--hint" ng-show="data == null">
+			<fd-message-page-title>Select a record to get a list of it's details.</fd-message-page-title>
+		</fd-message-page>
 
+		<fd-toolbar has-title="true" ng-hide="data == null">
+			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
+			<fd-button ng-repeat="action in pageActions" compact="true" dg-type="transparent" dg-label="{{action.label}}" ng-click="triggerPageAction(action.id)"></fd-button>
+			<fd-toolbar-spacer></fd-toolbar-spacer>
+			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"
+				state="{{selectedMainEntityId == null ? 'disabled' : ''}}"></fd-button>
+		</fd-toolbar>
 		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
 			<table fd-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
-						<th fd-table-header-cell>Source</th>
-						<th fd-table-header-cell>Target</th>
-						<th fd-table-header-cell>Rate</th>
 						<th fd-table-header-cell>Date</th>
-						<th fd-table-header-cell>Level</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -41,16 +42,8 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsSourceValue(next.Source)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsTargetValue(next.Target)}}
-						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Rate}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<fd-input type="date" ng-model="next.Date" ng-readonly="true"></fd-input>
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Level}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>
@@ -60,6 +53,7 @@
 								</fd-popover-control>
 								<fd-popover-body dg-align="bottom-right">
 									<fd-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
+										<fd-menu-item ng-repeat="action in entityActions" title="{{action.label}}" ng-click="triggerEntityAction(action.id, next)"></fd-menu-item>
 										<fd-menu-item title="View Details" ng-click="openDetails(next)"></fd-menu-item>
 										<fd-menu-item title="Edit" ng-click="updateEntity(next)"></fd-menu-item>
 										<fd-menu-item title="Delete" ng-click="deleteEntity(next)"></fd-menu-item>

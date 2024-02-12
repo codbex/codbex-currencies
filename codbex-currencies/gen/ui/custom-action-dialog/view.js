@@ -4,10 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "CurrencyExchange-details",
-    label: "CurrencyExchange",
-    link: "/services/web/codbex-currencies/gen/ui/Currencies/CurrencyExchange/dialog-window/index.html",
-    perspectiveName: "Currencies"
+    id: "codbex-currencies-custom-action",
+    label: "Custom Action",
+    link: "/services/web/codbex-currencies/gen/ui/custom-action-dialog/index.html"
 };
 
 if (typeof exports !== 'undefined') {

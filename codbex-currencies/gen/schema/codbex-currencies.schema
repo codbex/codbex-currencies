@@ -6,16 +6,26 @@
                 "type": "TABLE",
                 "columns": [
                     {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCY_ID"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 3,
-                        "primaryKey": true,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CURRENCY_CODE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 127,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "CURRENCY_NAME"
                     },
@@ -24,24 +34,37 @@
                         "length": 3,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "nullable": true,
                         "name": "CURRENCY_NUMERIC"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "CURRENCY_ROUNDING"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
+                        "type": "BOOLEAN",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "CURRENCY_ACTIVE"
+                        "name": "CURRENCY_BASE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_RATE"
                     }
                 ]
             },
             {
-                "name": "CODBEX_CURRENCYEXCHANGE",
+                "name": "CODBEX_CURRENCYRATE",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -50,62 +73,34 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "CURRENCYEXCHANGE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 3,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCYEXCHANGE_SOURCE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 3,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCYEXCHANGE_TARGET"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "CURRENCYEXCHANGE_RATE"
-                    },
-                    {
-                        "type": "TIMESTAMP",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "CURRENCYEXCHANGE_DATE"
+                        "name": "CURRENCYRATE_ID"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "nullable": true,
-                        "name": "CURRENCYEXCHANGE_LEVEL"
+                        "name": "CURRENCYRATE_CURRENCY"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_DATE"
                     }
                 ]
             },
             {
-                "name": "CurrencyExchange_Currency",
+                "name": "CurrencyRate_Currency",
                 "type": "foreignKey",
-                "table": "CODBEX_CURRENCYEXCHANGE",
-                "constraintName": "CurrencyExchange_Currency",
-                "columns": "CURRENCYEXCHANGE_SOURCE",
+                "table": "CODBEX_CURRENCYRATE",
+                "constraintName": "CurrencyRate_Currency",
+                "columns": "CURRENCYRATE_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
-                "referencedColumns": "CURRENCY_CODE"
-            },
-            {
-                "name": "CurrencyExchange_Currency",
-                "type": "foreignKey",
-                "table": "CODBEX_CURRENCYEXCHANGE",
-                "constraintName": "CurrencyExchange_Currency",
-                "columns": "CURRENCYEXCHANGE_TARGET",
-                "referencedTable": "CODBEX_CURRENCY",
-                "referencedColumns": "CURRENCY_CODE"
+                "referencedColumns": "CURRENCY_ID"
             }
         ]
-    }
+    },
+    "datasource": "DefaultDB"
 }
