@@ -236,11 +236,11 @@ export class CurrencyRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: CurrencyEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: CurrencyEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCY"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -261,6 +261,6 @@ export class CurrencyRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-currencies/Currencies/Currency").send(JSON.stringify(data));
+        producer.topic("codbex-currencies/Currencies/Currency").send(JSON.stringify(data));
     }
 }

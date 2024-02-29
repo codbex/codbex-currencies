@@ -180,21 +180,11 @@ export class CurrencyRateRepository {
         });
     }
 
-
-
-    public count(Currency: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCYRATE" WHERE "CURRENCYRATE_CURRENCY" = ?', [Currency]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: CurrencyRateEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: CurrencyRateEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCYRATE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -215,6 +205,6 @@ export class CurrencyRateRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-currencies/Currencies/CurrencyRate").send(JSON.stringify(data));
+        producer.topic("codbex-currencies/Currencies/CurrencyRate").send(JSON.stringify(data));
     }
 }

@@ -10,7 +10,14 @@ class CurrencyRateService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let Currency = parseInt(ctx.queryParameters.Currency);
+            Currency = isNaN(Currency) ? ctx.queryParameters.Currency : Currency;
             const options: CurrencyRateEntityOptions = {
+                $filter: {
+                    equals: {
+                        Currency: Currency
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class CurrencyRateService {
         }
     }
 
-    @Get("/count/:Currency")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let Currency = parseInt(ctx.pathParameters.Currency);
-            Currency = isNaN(Currency) ? ctx.pathParameters.Currency : Currency;
-            return this.repository.count(Currency);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }
