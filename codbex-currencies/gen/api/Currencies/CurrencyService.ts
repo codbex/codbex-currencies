@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { CurrencyRepository, CurrencyEntityOptions } from "../../dao/Currencies/CurrencyRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-currencies-Currencies-Currency", ["validate"]);
 
 @Controller
 class CurrencyService {
@@ -24,6 +28,7 @@ class CurrencyService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-currencies/gen/api/Currencies/CurrencyService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class CurrencyService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Currency not found");
             }
@@ -79,6 +84,7 @@ class CurrencyService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,20 @@ class CurrencyService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Code?.length > 3) {
+            throw new ValidationError(`The 'Code' exceeds the maximum length of [3] characters`);
+        }
+        if (entity.Name?.length > 127) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [127] characters`);
+        }
+        if (entity.Numeric?.length > 3) {
+            throw new ValidationError(`The 'Numeric' exceeds the maximum length of [3] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

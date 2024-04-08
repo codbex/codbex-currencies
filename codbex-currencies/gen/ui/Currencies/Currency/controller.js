@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-currencies/gen/api/Currencies/CurrencyService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
@@ -14,19 +14,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.action = "select";
 
 		//-----------------Custom Actions-------------------//
-		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-currencies-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "Currencies" && e.view === "Currency" && (e.type === "page" || e.type === undefined));
+		Extensions.get('dialogWindow', 'codbex-currencies-custom-action').then(function (response) {
+			$scope.pageActions = response.filter(e => e.perspective === "Currencies" && e.view === "Currency" && (e.type === "page" || e.type === undefined));
 		});
 
-		$scope.triggerPageAction = function (actionId) {
-			for (const next of $scope.pageActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-currencies-custom-action", {
-						src: next.link,
-					});
-					break;
-				}
-			}
+		$scope.triggerPageAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{},
+				null,
+				true,
+				action
+			);
 		};
 		//-----------------Custom Actions-------------------//
 
@@ -81,7 +80,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					messageHub.showAlertError("Currency", `Unable to count Currency: '${response.message}'`);
 					return;
 				}
-				$scope.dataCount = response.data;
+				if (response.data) {
+					$scope.dataCount = response.data;
+				}
 				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
 				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
 				filter.$limit = $scope.dataLimit;

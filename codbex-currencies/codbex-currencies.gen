@@ -8,6 +8,7 @@
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
   "templateId": "template-application-angular/template/template.js",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Currencies": {
       "views": [
@@ -247,6 +248,7 @@
       "title": "Currency",
       "tooltip": "Currency",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -522,6 +524,7 @@
       "title": "CurrencyRate",
       "tooltip": "CurrencyRate",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"

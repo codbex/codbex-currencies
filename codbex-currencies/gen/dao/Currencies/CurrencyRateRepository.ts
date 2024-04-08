@@ -102,7 +102,7 @@ export class CurrencyRateRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(CurrencyRateRepository.DEFINITION, null, dataSource);
     }
 
@@ -184,7 +184,7 @@ export class CurrencyRateRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: CurrencyRateEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CURRENCYRATE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -197,7 +197,7 @@ export class CurrencyRateRepository {
     }
 
     private async triggerEvent(data: CurrencyRateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-currencies/Currencies/CurrencyRate", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-currencies-Currencies-CurrencyRate", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -205,6 +205,6 @@ export class CurrencyRateRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-currencies/Currencies/CurrencyRate").send(JSON.stringify(data));
+        producer.topic("codbex-currencies-Currencies-CurrencyRate").send(JSON.stringify(data));
     }
 }

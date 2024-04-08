@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-currencies/gen/ui/Currencies/Currency/CurrencyRate/index.html",
-    perspectiveName: "Currencies"
+    perspectiveName: "Currencies",
 };
 
 if (typeof exports !== 'undefined') {

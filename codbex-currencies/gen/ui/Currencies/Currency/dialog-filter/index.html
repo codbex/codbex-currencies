@@ -25,23 +25,20 @@
 		        </fd-button>
             </div>
 
-            <fd-fieldset class="fd-margin--md" ng-form="forms.details">
+            <fd-fieldset ng-form="forms.details">
                 <fd-form-group dg-header="Currency Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCode" dg-required="false" dg-colon="true">Code</fd-form-label>
+                        	<fd-form-label for="idCode" dg-colon="true">Code</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Code'].$valid }}">
 	                            <fd-input id="idCode"
 	                                name="Code"
 	                                state="{{ forms.details['Code'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Code"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="3.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Code">
 	                            </fd-input>
@@ -51,19 +48,16 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        	<fd-form-label for="idName" dg-colon="true">Name</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Name"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
@@ -73,19 +67,16 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNumeric" dg-required="false" dg-colon="true">Numeric</fd-form-label>
+                        	<fd-form-label for="idNumeric" dg-colon="true">Numeric</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Numeric'].$valid }}">
 	                            <fd-input id="idNumeric"
 	                                name="Numeric"
 	                                state="{{ forms.details['Numeric'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Numeric"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="3.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Numeric">
 	                            </fd-input>
@@ -95,15 +86,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idRounding" dg-required="false" dg-colon="true">Rounding</fd-form-label>
+                        	<fd-form-label for="idRounding" dg-colon="true">Rounding</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <fd-step-input dg-id="idRounding"
 								name="Rounding"
 								state="{{ forms.details['Rounding'].$valid ? '' : 'error' }}"
-								dg-required="false"
 								ng-model="entity.Rounding"
-								is-readonly="action === 'select'"
 								placeholder="Enter Rounding"
 								>
 							</fd-step-input>
@@ -114,23 +103,20 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idBase"
 	                            compact="false"
-	                            ng-required="false"
 								ng-model="entity.Base">
 	                        </fd-checkbox>
-                        	<fd-checkbox-label for="idBase" dg-required="false">Base</fd-checkbox-label>
+                        	<fd-checkbox-label for="idBase">Base</fd-checkbox-label>
                         </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idRate" dg-required="false" dg-colon="true">Rate</fd-form-label>
+                        	<fd-form-label for="idRate" dg-colon="true">Rate</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <fd-step-input dg-id="idRate"
 								name="Rate"
 								state="{{ forms.details['Rate'].$valid ? '' : 'error' }}"
-								dg-required="false"
 								ng-model="entity.Rate"
-								is-readonly="action === 'select'"
 								placeholder="Enter Rate"
 								>
 							</fd-step-input>
@@ -140,20 +126,19 @@
             </fd-fieldset>
         </fd-scrollbar>
 
-        <footer class="fd-dialog__footer fd-bar fd-bar--footer" ng-show="action !== 'select'">
-            <div class="fd-bar__right">
-                <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
-                    dg-label="Filter"
-                    ng-click="filter()">
-                </fd-button>
-                <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="transparent"
-                    dg-label="Reset"
-                    ng-click="resetFilter()">
-                </fd-button>
-                <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
-                    ng-click="cancel()"></fd-button>
-            </div>
-        </footer>
+        <fd-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
+			<fd-bar-right>
+				<fd-bar-element>
+					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
+				</fd-bar-element>
+				<fd-bar-element>
+					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
+				</fd-bar-element>
+				<fd-bar-element>
+					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+				</fd-bar-element>
+			</fd-bar-right>
+		</fd-bar>
 
     </body>
 

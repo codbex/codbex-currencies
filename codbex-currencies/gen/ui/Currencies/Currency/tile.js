@@ -12,6 +12,6 @@ exports.getTile = function () {
         // icon: "file-o",
         location: "/services/web/codbex-currencies/gen/ui/Currencies/index.html",
         order: "100",
-        groupOrder: "990"
+        groupOrder: "990",
     };
 };

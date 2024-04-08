@@ -1,1 +1,4 @@
-{"location":"codbex-currencies/gen/dao/Currencies/CurrencyRate.extensionpoint","name":"codbex-currencies/Currencies/CurrencyRate","description":"Extension Point for codbex-currencies Currencies CurrencyRate"}
+{
+    "name": "codbex-currencies-Currencies-CurrencyRate",
+    "description": "Extension Point for the codbex-currencies-Currencies-CurrencyRate entity"
+}
