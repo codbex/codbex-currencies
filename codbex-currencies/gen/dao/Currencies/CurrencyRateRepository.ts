@@ -75,6 +75,10 @@ interface CurrencyRateEntityEvent {
     }
 }
 
+interface CurrencyRateUpdateEntityEvent extends CurrencyRateEntityEvent {
+    readonly previousEntity: CurrencyRateEntity;
+}
+
 export class CurrencyRateRepository {
 
     private static readonly DEFINITION = {
@@ -137,11 +141,13 @@ export class CurrencyRateRepository {
 
     public update(entity: CurrencyRateUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CURRENCYRATE",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CURRENCYRATE_ID",
@@ -196,7 +202,7 @@ export class CurrencyRateRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CurrencyRateEntityEvent) {
+    private async triggerEvent(data: CurrencyRateEntityEvent | CurrencyRateUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-currencies-Currencies-CurrencyRate", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

@@ -42,10 +42,10 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Currency) {
+			if (entity.Currency !== undefined) {
 				filter.$filter.equals.Currency = entity.Currency;
 			}
 			if (entity.DateFrom) {

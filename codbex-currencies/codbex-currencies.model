@@ -146,7 +146,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCY\"",
                 "dataName": "CURRENCY",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -155,11 +155,13 @@
                 "name": "Currency",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
+                "perspectiveLabel": "Currencies",
                 "perspectiveName": "Currencies",
                 "perspectiveOrder": "990",
+                "perspectiveRole": "",
                 "title": "Currency",
                 "tooltip": "Currency",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -204,7 +206,8 @@
                         "widgetSize": "fd-col-md--2 fd-col--3",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Currencies"
+                        "relationshipEntityPerspectiveName": "Currencies",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -231,7 +234,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CURRENCYRATE\"",
                 "dataName": "CURRENCYRATE",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -240,8 +243,10 @@
                 "name": "CurrencyRate",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
+                "perspectiveLabel": "Currencies",
                 "perspectiveName": "Currencies",
                 "perspectiveOrder": "990",
+                "perspectiveRole": "",
                 "title": "CurrencyRate",
                 "tooltip": "CurrencyRate",
                 "type": "DEPENDENT"
@@ -252,7 +257,8 @@
                 "name": "Currencies",
                 "label": "Currencies",
                 "icon": "/services/web/resources/unicons/dollar-alt.svg",
-                "order": "990"
+                "order": "990",
+                "role": {}
             }
         ],
         "navigations": []

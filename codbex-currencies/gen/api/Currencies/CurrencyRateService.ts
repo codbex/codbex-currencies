@@ -14,17 +14,21 @@ class CurrencyRateService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let Currency = parseInt(ctx.queryParameters.Currency);
-            Currency = isNaN(Currency) ? ctx.queryParameters.Currency : Currency;
             const options: CurrencyRateEntityOptions = {
-                $filter: {
-                    equals: {
-                        Currency: Currency
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let Currency = parseInt(ctx.queryParameters.Currency);
+            Currency = isNaN(Currency) ? ctx.queryParameters.Currency : Currency;
+
+            if (Currency !== undefined) {
+                options.$filter = {
+                    equals: {
+                        Currency: Currency
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

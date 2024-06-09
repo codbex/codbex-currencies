@@ -36,7 +36,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Code) {
@@ -48,13 +48,13 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Numeric) {
 				filter.$filter.contains.Numeric = entity.Numeric;
 			}
-			if (entity.Rounding) {
+			if (entity.Rounding !== undefined) {
 				filter.$filter.equals.Rounding = entity.Rounding;
 			}
-			if (entity.Base) {
+			if (entity.Base !== undefined && entity.isBaseIndeterminate === false) {
 				filter.$filter.equals.Base = entity.Base;
 			}
-			if (entity.Rate) {
+			if (entity.Rate !== undefined) {
 				filter.$filter.equals.Rate = entity.Rate;
 			}
 			messageHub.postMessage("entitySearch", {

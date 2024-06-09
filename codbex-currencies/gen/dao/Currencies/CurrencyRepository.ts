@@ -111,6 +111,10 @@ interface CurrencyEntityEvent {
     }
 }
 
+interface CurrencyUpdateEntityEvent extends CurrencyEntityEvent {
+    readonly previousEntity: CurrencyEntity;
+}
+
 export class CurrencyRepository {
 
     private static readonly DEFINITION = {
@@ -193,11 +197,13 @@ export class CurrencyRepository {
 
     public update(entity: CurrencyUpdateEntity): void {
         EntityUtils.setBoolean(entity, "Base");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_CURRENCY",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "CURRENCY_ID",
@@ -252,7 +258,7 @@ export class CurrencyRepository {
         return 0;
     }
 
-    private async triggerEvent(data: CurrencyEntityEvent) {
+    private async triggerEvent(data: CurrencyEntityEvent | CurrencyUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-currencies-Currencies-Currency", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

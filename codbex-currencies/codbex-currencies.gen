@@ -4,11 +4,12 @@
   "brandUrl": "https://codbex.com",
   "title": "Currencies Management Module",
   "description": "Managing currencies data",
+  "dataSource": "DefaultDB",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
   "templateId": "template-application-angular/template/template.js",
-  "dataSource": "DefaultDB",
+  "fileName": "codbex-currencies",
   "perspectives": {
     "Currencies": {
       "views": [
@@ -37,7 +38,8 @@
       "name": "Currencies",
       "label": "Currencies",
       "order": "990",
-      "icon": "/services/web/resources/unicons/dollar-alt.svg"
+      "icon": "/services/web/resources/unicons/dollar-alt.svg",
+      "role": ""
     }
   },
   "models": [
@@ -234,7 +236,7 @@
       "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_CURRENCY\"",
       "dataName": "CURRENCY",
       "dataQuery": "",
-      "disableGeneration": "false",
+      "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_MASTER",
       "menuIndex": "100",
@@ -243,11 +245,13 @@
       "name": "Currency",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
+      "perspectiveLabel": "Currencies",
       "perspectiveName": "Currencies",
       "perspectiveOrder": "990",
+      "perspectiveRole": "",
       "title": "Currency",
       "tooltip": "Currency",
-      "type": "PRIMARY",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
@@ -471,6 +475,7 @@
           "widgetType": "TEXTBOX",
           "relationshipEntityName": "Currency",
           "relationshipEntityPerspectiveName": "Currencies",
+          "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "widgetLabel": "Currency",
           "widgetDropdownUrl": "",
@@ -510,7 +515,7 @@
       "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_CURRENCYRATE\"",
       "dataName": "CURRENCYRATE",
       "dataQuery": "",
-      "disableGeneration": "false",
+      "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_DETAILS",
       "menuIndex": "100",
@@ -519,8 +524,10 @@
       "name": "CurrencyRate",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
+      "perspectiveLabel": "Currencies",
       "perspectiveName": "Currencies",
       "perspectiveOrder": "990",
+      "perspectiveRole": "",
       "title": "CurrencyRate",
       "tooltip": "CurrencyRate",
       "type": "DEPENDENT",
