@@ -1,4 +1,4 @@
-name: Release - Application
+name: Release - Module
 
 on:
   workflow_dispatch:
@@ -12,24 +12,24 @@ run-name: 'version set to ${{ inputs.release-version }} for release'
 
 jobs:
   main:
-    uses: codbex/codbex-infra/.github/workflows/application-release.yaml@main
+    uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
     with:
-      application-name: codbex-currencies
+      packages: codbex-currencies,codbex-currencies-data
+      packages-build: codbex-currencies
       release-version: ${{ inputs.release-version }}
       release-content: |
         ## codbex-currencies - ${{ inputs.release-version }}
   
-        Currencies Management Application
+        Currencies Management Module
   
-        ## Deployment
+        ## Installation
   
         ```
-        docker run --name codbex-currencies \
-        --rm -p 8080:8080 -p 8081:8081 \
-        ghcr.io/codbex/codbex-currencies:${{ inputs.release-version }}
+        npm install @codbex/codbex-currencies@${{ inputs.release-version }}
+        npm install @codbex/codbex-currencies-data@${{ inputs.release-version }}
         ```
   
         ## Access points:
   
-        - [/services/web/codbex-currencies/gen/](http://localhost:8080/services/web/codbex-currencies/gen/) - Admin Panel
+        - [/services/web/codbex-currencies/gen/](http://localhost:80/services/web/codbex-currencies/gen/) - Admin Panel
     secrets: inherit
