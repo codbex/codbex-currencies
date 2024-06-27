@@ -1,5 +1,0 @@
-{
-    "module": "codbex-currencies/gen/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-currencies-view",
-    "description": "codbex-currencies - Application View"
-}
