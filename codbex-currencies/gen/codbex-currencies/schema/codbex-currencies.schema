@@ -1,0 +1,85 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_CURRENCY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "CURRENCY_CODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 127,
+                        "nullable": true,
+                        "name": "CURRENCY_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "CURRENCY_NUMERIC"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "CURRENCY_ROUNDING"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "CURRENCY_BASE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "CURRENCY_RATE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CURRENCYRATE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCYRATE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_CURRENCY"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_DATE"
+                    }
+                ]
+            },
+            {
+                "name": "CurrencyRate_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_CURRENCYRATE",
+                "constraintName": "CurrencyRate_Currency",
+                "columns": "CURRENCYRATE_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
