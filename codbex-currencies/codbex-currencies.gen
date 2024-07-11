@@ -6,11 +6,11 @@
   "description": "Managing currencies data",
   "dataSource": "DefaultDB",
   "fileName": "codbex-currencies",
+  "genFolderName": "codbex-currencies",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
   "templateId": "template-application-angular/template/template.js",
-  "genFolderName": "codbex-currencies",
   "perspectives": {
     "Currencies": {
       "views": [
