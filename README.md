@@ -15,9 +15,6 @@ Currencies Management Application
 
 ![management](images/currencies-management.png)
 
-
-![management](images/currencies-exchange-management.png)
-
 ### Infrastructure
 
 #### Build
