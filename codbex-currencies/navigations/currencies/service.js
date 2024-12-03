@@ -1,9 +1,8 @@
 const navigationData = {
     id: 'currencies-navigation',
     label: "Currencies",
-    view: "currencies",
     group: "reference-data",
-    orderNumber: 200,
+    order: 200,
     link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/index.html?embedded"
 };
 
