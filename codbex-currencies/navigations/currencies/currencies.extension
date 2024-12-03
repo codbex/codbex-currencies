@@ -1,5 +1,5 @@
 {
     "extensionPoint": "dashboard-navigations",
-    "module": "codbex-currencies/navigations/services/currencies.js",
+    "module": "codbex-currencies/navigations/currencies/currencies.js",
     "description": "Currencies Navigation"
 }
