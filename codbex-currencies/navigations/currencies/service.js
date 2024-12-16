@@ -1,7 +1,7 @@
 const navigationData = {
     id: 'currencies-navigation',
     label: "Currencies",
-    group: "metadata",
+    group: "reference data",
     order: 200,
     link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/index.html?embedded"
 };
