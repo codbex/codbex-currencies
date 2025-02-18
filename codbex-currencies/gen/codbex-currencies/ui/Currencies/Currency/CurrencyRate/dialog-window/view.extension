@@ -1,5 +1,5 @@
 {
     "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/dialog-window/view.js",
-    "extensionPoint": "codbex-currencies-dialog-window",
+    "extensionPoint": "dialog-window",
     "description": "codbex-currencies - Application Dialog Window"
 }

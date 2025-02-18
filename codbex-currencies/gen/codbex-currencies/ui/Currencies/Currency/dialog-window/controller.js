@@ -1,30 +1,26 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-currencies.Currencies.CurrencyRate';
+		messageHubProvider.eventIdPrefix = 'codbex-currencies.Currencies.Currency';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
+	.controller('PageController', ['$scope',  'messageHub', 'ViewParameters', 'entityApi', function ($scope,  messageHub, ViewParameters, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "CurrencyRate Details",
-			create: "Create CurrencyRate",
-			update: "Update CurrencyRate"
+			select: "Currency Details",
+			create: "Create Currency",
+			update: "Update Currency"
 		};
 		$scope.action = 'select';
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
 			$scope.action = params.action;
-
-			if (params.entity.Date) {
-				params.entity.Date = new Date(params.entity.Date);
-			}
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -35,12 +31,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.create(entity).then(function (response) {
 				if (response.status != 201) {
-					messageHub.showAlertError("CurrencyRate", `Unable to create CurrencyRate: '${response.message}'`);
+					$scope.errorMessage = `Unable to create Currency: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityCreated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("CurrencyRate", "CurrencyRate successfully created");
+				messageHub.showAlertSuccess("Currency", "Currency successfully created");
 			});
 		};
 
@@ -50,12 +46,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			entityApi.update(id, entity).then(function (response) {
 				if (response.status != 200) {
-					messageHub.showAlertError("CurrencyRate", `Unable to update CurrencyRate: '${response.message}'`);
+					$scope.errorMessage = `Unable to update Currency: '${response.message}'`;
 					return;
 				}
 				messageHub.postMessage("entityUpdated", response.data);
 				$scope.cancel();
-				messageHub.showAlertSuccess("CurrencyRate", "CurrencyRate successfully updated");
+				messageHub.showAlertSuccess("Currency", "Currency successfully updated");
 			});
 		};
 
@@ -63,7 +59,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("CurrencyRate-details");
+			messageHub.closeDialogWindow("Currency-details");
+		};
+
+		$scope.clearErrorMessage = function () {
+			$scope.errorMessage = null;
 		};
 
 	}]);
