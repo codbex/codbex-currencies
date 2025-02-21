@@ -1,0 +1,5 @@
+{
+    "module": "codbex-currencies/events/CurrencyRate/UpdateCurrencyRateHandler.ts",
+    "extensionPoint": "codbex-currencies-Currencies-CurrencyRate",
+    "description": "Currency Rate extension"
+}

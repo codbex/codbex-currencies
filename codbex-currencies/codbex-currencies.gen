@@ -47,6 +47,7 @@
       "role": ""
     }
   },
+  "roles": [],
   "models": [
     {
       "properties": [
@@ -226,6 +227,7 @@
       "dataName": "CURRENCY",
       "dataQuery": "",
       "description": "Manage entity Currency",
+      "generateDefaultRoles": "false",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_MASTER",
@@ -477,6 +479,29 @@
           "dataTypeTypescript": "Date",
           "isDateType": true,
           "inputRule": ""
+        },
+        {
+          "dataName": "CURRENCYRATE_RATE",
+          "dataNullable": true,
+          "dataType": "DOUBLE",
+          "description": "",
+          "isRequiredProperty": true,
+          "name": "Rate",
+          "tooltip": "",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "NUMBER",
+          "dataNotNull": false,
+          "dataAutoIncrement": false,
+          "dataPrimaryKey": false,
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "Rate",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity CurrencyRate",
@@ -484,6 +509,7 @@
       "dataName": "CURRENCYRATE",
       "dataQuery": "",
       "description": "Manage entity CurrencyRate",
+      "generateDefaultRoles": "false",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_DETAILS",

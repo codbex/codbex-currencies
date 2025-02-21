@@ -1111,6 +1111,7 @@ components:
     CurrencyRate:
       type: object
       required:
+        - Rate
       properties:
         Id:
           type: integer
@@ -1119,6 +1120,9 @@ components:
           type: integer
           format: int32
         Date:
+        Rate:
+          type: number
+          format: double
     CurrencyRateFilterOptions:
       type: object
       properties:
@@ -1146,6 +1150,14 @@ components:
                         format: int32
                 Date:
                   oneOf:
+                Rate:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
             notEquals:
               type: object
               properties:
@@ -1167,12 +1179,21 @@ components:
                         format: int32
                 Date:
                   oneOf:
+                Rate:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
             contains:
               type: object
               properties:
                 Id:
                 Currency:
                 Date:
+                Rate:
             greaterThan:
               type: object
               properties:
@@ -1183,6 +1204,9 @@ components:
                   type: integer
                   format: int32
                 Date:
+                Rate:
+                  type: number
+                  format: double
             greaterThanOrEqual:
               type: object
               properties:
@@ -1193,6 +1217,9 @@ components:
                   type: integer
                   format: int32
                 Date:
+                Rate:
+                  type: number
+                  format: double
             lessThan:
               type: object
               properties:
@@ -1203,6 +1230,9 @@ components:
                   type: integer
                   format: int32
                 Date:
+                Rate:
+                  type: number
+                  format: double
             lessThanOrEqual:
               type: object
               properties:
@@ -1213,14 +1243,17 @@ components:
                   type: integer
                   format: int32
                 Date:
+                Rate:
+                  type: number
+                  format: double
         $select:
           type: array
-          example: ["Id", "Currency", "Date"]
+          example: ["Id", "Currency", "Date", "Rate"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Currency,Date"
+            example: "Id,Currency,Date,Rate"
         $order:
           type: string
           enum: ["asc", "desc"]

@@ -1,1 +1,5 @@
-{"module":"codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/view.js","extensionPoint":"codbex-currencies-view","description":"codbex-currencies - Application View"}
+{
+    "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/view.js",
+    "extensionPoint": "codbex-currencies-view",
+    "description": "codbex-currencies - Application View"
+}

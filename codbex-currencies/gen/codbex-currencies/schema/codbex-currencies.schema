@@ -67,6 +67,11 @@
                         "type": "DATE",
                         "nullable": true,
                         "name": "CURRENCYRATE_DATE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_RATE"
                     }
                 ]
             },

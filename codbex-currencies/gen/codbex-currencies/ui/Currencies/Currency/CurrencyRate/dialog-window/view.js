@@ -7,7 +7,7 @@ const viewData = {
     id: "CurrencyRate-details",
     label: "CurrencyRate",
     link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/dialog-window/index.html",
-    perspectiveName: "Currencies",
+    perspectiveName: "Currencies"
 };
 
 if (typeof exports !== 'undefined') {

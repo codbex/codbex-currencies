@@ -1,1 +1,5 @@
-{"module":"codbex-currencies/gen/codbex-currencies/ui/Currencies/perspective.js","extensionPoint":"codbex-currencies","description":"codbex-currencies - Perspective - Currencies"}
+{
+    "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/perspective.js",
+    "extensionPoint": "codbex-currencies",
+    "description": "codbex-currencies - Perspective - Currencies"
+}

@@ -130,6 +130,9 @@ class CurrencyRateService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Rate === null || entity.Rate === undefined) {
+            throw new ValidationError(`The 'Rate' property is required, provide a valid value`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }
