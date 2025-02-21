@@ -1,1 +1,5 @@
-{"module":"codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/tile.js","extensionPoint":"codbex-currencies-tile","description":"codbex-currencies - Application Tile"}
+{
+    "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/tile.js",
+    "extensionPoint": "codbex-currencies-tile",
+    "description": "codbex-currencies - Application Tile"
+}

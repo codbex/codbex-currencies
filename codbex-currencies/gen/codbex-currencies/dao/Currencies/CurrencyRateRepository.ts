@@ -8,11 +8,13 @@ export interface CurrencyRateEntity {
     readonly Id: number;
     Currency?: number;
     Date?: Date;
+    Rate?: number;
 }
 
 export interface CurrencyRateCreateEntity {
     readonly Currency?: number;
     readonly Date?: Date;
+    readonly Rate?: number;
 }
 
 export interface CurrencyRateUpdateEntity extends CurrencyRateCreateEntity {
@@ -25,36 +27,43 @@ export interface CurrencyRateEntityOptions {
             Id?: number | number[];
             Currency?: number | number[];
             Date?: Date | Date[];
+            Rate?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Currency?: number | number[];
             Date?: Date | Date[];
+            Rate?: number | number[];
         };
         contains?: {
             Id?: number;
             Currency?: number;
             Date?: Date;
+            Rate?: number;
         };
         greaterThan?: {
             Id?: number;
             Currency?: number;
             Date?: Date;
+            Rate?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Currency?: number;
             Date?: Date;
+            Rate?: number;
         };
         lessThan?: {
             Id?: number;
             Currency?: number;
             Date?: Date;
+            Rate?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Currency?: number;
             Date?: Date;
+            Rate?: number;
         };
     },
     $select?: (keyof CurrencyRateEntity)[],
@@ -100,6 +109,11 @@ export class CurrencyRateRepository {
                 name: "Date",
                 column: "CURRENCYRATE_DATE",
                 type: "DATE",
+            },
+            {
+                name: "Rate",
+                column: "CURRENCYRATE_RATE",
+                type: "DOUBLE",
             }
         ]
     };

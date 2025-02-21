@@ -98,6 +98,7 @@
                 "dataName": "CURRENCY",
                 "dataQuery": "",
                 "description": "Manage entity Currency",
+                "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
@@ -160,6 +161,19 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DATE"
+                    },
+                    {
+                        "dataName": "CURRENCYRATE_RATE",
+                        "dataNullable": "true",
+                        "dataType": "DOUBLE",
+                        "description": "",
+                        "isRequiredProperty": "true",
+                        "name": "Rate",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
                     }
                 ],
                 "caption": "Manage entity CurrencyRate",
@@ -167,6 +181,7 @@
                 "dataName": "CURRENCYRATE",
                 "dataQuery": "",
                 "description": "Manage entity CurrencyRate",
+                "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",

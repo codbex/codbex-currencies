@@ -7,7 +7,7 @@ const viewData = {
     id: "Currency-filter",
     label: "Currency Filter",
     link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/dialog-filter/index.html",
-    perspectiveName: "Currencies",
+    perspectiveName: "Currencies"
 };
 
 if (typeof exports !== 'undefined') {

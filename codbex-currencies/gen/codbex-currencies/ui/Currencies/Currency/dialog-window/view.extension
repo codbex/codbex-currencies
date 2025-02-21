@@ -1,1 +1,5 @@
-{"module":"codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/dialog-window/view.js","extensionPoint":"dialog-window","description":"codbex-currencies - Application Dialog Window"}
+{
+    "module": "{{projectName}}/gen/{{genFolderName}}/ui/{{perspectiveName}}/{{name}}/dialog-window/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "{{projectName}} - Application Dialog Window"
+}
