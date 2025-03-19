@@ -8,6 +8,9 @@ const viewData = {
     label: "Currency",
     link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/dialog-window/index.html",
     perspectiveName: "Currencies",
+    roles: [
+        "codbex-currencies.Currencies.CurrencyReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

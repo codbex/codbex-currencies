@@ -1,5 +1,6 @@
 {
     "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/tile.js",
     "extensionPoint": "codbex-currencies-tile",
-    "description": "codbex-currencies - Application Tile"
+    "description": "codbex-currencies - Application Tile",
+    "role": "codbex-currencies.Currencies.CurrencyReadOnly,codbex-currencies.Currencies.CurrencyFullAccess"
 }
