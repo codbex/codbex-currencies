@@ -13,7 +13,7 @@ Currencies Management Application
 
 #### Management
 
-![management](images/currencies-management.png)
+![management](images/currency-rate-management.png)
 
 ### Infrastructure
 
