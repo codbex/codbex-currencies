@@ -1,4 +1,4 @@
 {
-    "name": "codbex-currencies-dialog-window",
+    "name": "dialog-window",
     "description": "codbex-currencies - Extension Point for the Application Dialog Window Providers"
 }

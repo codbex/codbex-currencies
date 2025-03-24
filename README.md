@@ -13,18 +13,4 @@ Currencies Management Application
 
 #### Management
 
-![management](images/currencies-management.png)
-
-### Infrastructure
-
-#### Build
-
-	docker build -t codbex-currencies:1.0.0 .
-
-#### Run
-
-	docker run --name codbex-currencies -d -p 8080:8080 codbex-currencies:1.0.0
-
-#### Clean
-
-	docker rm codbex-currencies
+![management](images/currency-rate-management.png)

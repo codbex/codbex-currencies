@@ -7,6 +7,18 @@
   "dataSource": "DefaultDB",
   "fileName": "codbex-currencies",
   "genFolderName": "codbex-currencies",
+  "roles": [
+    {
+      "entityName": "Currency",
+      "roleRead": "codbex-currencies.Currencies.CurrencyReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyFullAccess"
+    },
+    {
+      "entityName": "CurrencyRate",
+      "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess"
+    }
+  ],
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
@@ -47,7 +59,6 @@
       "role": ""
     }
   },
-  "roles": [],
   "models": [
     {
       "properties": [
@@ -227,7 +238,7 @@
       "dataName": "CURRENCY",
       "dataQuery": "",
       "description": "Manage entity Currency",
-      "generateDefaultRoles": "false",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_MASTER",
@@ -241,6 +252,8 @@
       "perspectiveName": "Currencies",
       "perspectiveOrder": "990",
       "perspectiveRole": "",
+      "roleRead": "codbex-currencies.Currencies.CurrencyReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyFullAccess",
       "title": "Currency",
       "tooltip": "Currency",
       "type": "SETTING",
@@ -509,7 +522,7 @@
       "dataName": "CURRENCYRATE",
       "dataQuery": "",
       "description": "Manage entity CurrencyRate",
-      "generateDefaultRoles": "false",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE_DETAILS",
@@ -523,6 +536,8 @@
       "perspectiveName": "Currencies",
       "perspectiveOrder": "990",
       "perspectiveRole": "",
+      "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess",
       "title": "CurrencyRate",
       "tooltip": "CurrencyRate",
       "type": "DEPENDENT",

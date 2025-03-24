@@ -1,2 +1,18 @@
 [
+    {
+        "name": "codbex-currencies.Currencies.CurrencyReadOnly",
+        "description": "A role that grants read only permission for Currency."
+    },
+    {
+        "name": "codbex-currencies.Currencies.CurrencyFullAccess",
+        "description": "A role that grants full access for Currency."
+    },
+    {
+        "name": "codbex-currencies.Currencies.CurrencyRateReadOnly",
+        "description": "A role that grants read only permission for CurrencyRate."
+    },
+    {
+        "name": "codbex-currencies.Currencies.CurrencyRateFullAccess",
+        "description": "A role that grants full access for CurrencyRate."
+    }
 ]
