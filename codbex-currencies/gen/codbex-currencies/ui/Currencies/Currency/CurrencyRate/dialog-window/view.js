@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "CurrencyRate-details",
-    label: "CurrencyRate",
-    link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/dialog-window/index.html",
-    perspectiveName: "Currencies"
+    id: 'CurrencyRate-details',
+    label: 'CurrencyRate',
+    path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/dialog-window/index.html',
+    perspectiveName: 'Currencies'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

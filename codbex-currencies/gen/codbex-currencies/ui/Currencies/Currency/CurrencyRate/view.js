@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "CurrencyRate",
-    label: "CurrencyRate",
-    factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/index.html",
-    perspectiveName: "Currencies"
+    id: 'CurrencyRate',
+    label: 'CurrencyRate',
+    region: 'bottom',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/index.html',
+    perspectiveName: 'Currencies'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

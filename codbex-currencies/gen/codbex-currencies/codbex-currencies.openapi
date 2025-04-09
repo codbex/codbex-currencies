@@ -9,10 +9,10 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
-  - name: Currencies
+  - name: Settings
   - name: Currencies
 paths:
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts:
     get:
       summary: List Currency
       parameters:
@@ -33,7 +33,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Currencies
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -64,7 +64,7 @@ paths:
     post:
       summary: Create Currency
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:
@@ -96,7 +96,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts/{id}:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts/{id}:
     get:
       summary: Get Currency by Id
       parameters:
@@ -107,7 +107,7 @@ paths:
           schema:
             type: string
       tags:
-        - Currencies
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -145,7 +145,7 @@ paths:
           schema:
             type: string
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:
@@ -193,7 +193,7 @@ paths:
           schema:
             type: string
       tags:
-        - Currencies
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -215,11 +215,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts/count:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts/count:
     get:
       summary: Count the number of Currency
       tags:
-        - Currencies
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -243,7 +243,7 @@ paths:
     post:
       summary: Count the number of Currency by CurrencyFilterOptions
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:
@@ -329,11 +329,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts/search:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts/search:
     post:
       summary: Search Currency by CurrencyFilterOptions
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:

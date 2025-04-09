@@ -1,6 +1,0 @@
-{
-    "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/main-details/view.js",
-    "extensionPoint": "codbex-currencies-view",
-    "description": "codbex-currencies - Application View - Main Details",
-    "role": "codbex-currencies.Currencies.CurrencyReadOnly,codbex-currencies.Currencies.CurrencyFullAccess"
-}
