@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -9,19 +9,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: 'CurrencyRate Details',
-			create: 'Create CurrencyRate',
-			update: 'Update CurrencyRate'
+			select: 'Currency Details',
+			create: 'Create Currency',
+			update: 'Update Currency'
 		};
 		$scope.action = 'select';
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
 			$scope.action = params.action;
-
-			if (params.entity.Date) {
-				params.entity.Date = new Date(params.entity.Date);
-			}
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -31,19 +27,17 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-currencies.Currencies.CurrencyRate.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-currencies.Settings.Currency.entityCreated', data: response.data });
 				Dialogs.showAlert({
-					title: 'CurrencyRate',
-					message: 'CurrencyRate successfully created',
+					title: 'Currency',
+					message: 'Currency successfully created',
 					type: AlertTypes.Success
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
-				Dialogs.showAlert({
-					title: 'CurrencyRate',
-					message: `Unable to create CurrencyRate: '${message}'`,
-					type: AlertTypes.Error
+				$scope.$evalAsync(() => {
+					$scope.errorMessage = `Unable to create Currency: '${message}'`;
 				});
 				console.error('EntityService:', error);
 			});
@@ -54,19 +48,17 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-currencies.Currencies.CurrencyRate.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-currencies.Settings.Currency.entityUpdated', data: response.data });
 				Dialogs.showAlert({
-					title: 'CurrencyRate',
-					message: 'CurrencyRate successfully updated',
+					title: 'Currency',
+					message: 'Currency successfully updated',
 					type: AlertTypes.Success
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
-				Dialogs.showAlert({
-					title: 'CurrencyRate',
-					message: `Unable to update CurrencyRate: '${message}'`,
-					type: AlertTypes.Error
+				$scope.$evalAsync(() => {
+					$scope.errorMessage = `Unable to update Currency: '${message}'`;
 				});
 				console.error('EntityService:', error);
 			});
@@ -85,6 +77,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.cancel = () => {
 			$scope.entity = {};
 			$scope.action = 'select';
-			Dialogs.closeWindow({ id: 'CurrencyRate-details' });
+			Dialogs.closeWindow({ id: 'Currency-details' });
+		};
+
+		$scope.clearErrorMessage = () => {
+			$scope.errorMessage = null;
 		};
 	});

@@ -1,0 +1,6 @@
+{
+    "module": "codbex-currencies/gen/codbex-currencies/ui/Settings/Currency/dialog-filter/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-currencies - Application Dialog Window",
+    "role": "codbex-currencies.Currencies.CurrencyReadOnly,codbex-currencies.Currencies.CurrencyFullAccess"
+}

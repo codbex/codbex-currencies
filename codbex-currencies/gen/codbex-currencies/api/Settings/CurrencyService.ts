@@ -1,37 +1,26 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { CurrencyRateRepository, CurrencyRateEntityOptions } from "../../dao/Currencies/CurrencyRateRepository";
+import { CurrencyRepository, CurrencyEntityOptions } from "../../dao/Settings/CurrencyRepository";
 import { user } from "sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-currencies-Currencies-CurrencyRate", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-currencies-Settings-Currency", ["validate"]);
 
 @Controller
-class CurrencyRateService {
+class CurrencyService {
 
-    private readonly repository = new CurrencyRateRepository();
+    private readonly repository = new CurrencyRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
             this.checkPermissions("read");
-            const options: CurrencyRateEntityOptions = {
+            const options: CurrencyEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
-
-            let Currency = parseInt(ctx.queryParameters.Currency);
-            Currency = isNaN(Currency) ? ctx.queryParameters.Currency : Currency;
-
-            if (Currency !== undefined) {
-                options.$filter = {
-                    equals: {
-                        Currency: Currency
-                    }
-                };
-            }
 
             return this.repository.findAll(options);
         } catch (error: any) {
@@ -45,7 +34,7 @@ class CurrencyRateService {
             this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -92,7 +81,7 @@ class CurrencyRateService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("CurrencyRate not found");
+                HttpUtils.sendResponseNotFound("Currency not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -122,7 +111,7 @@ class CurrencyRateService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("CurrencyRate not found");
+                HttpUtils.sendResponseNotFound("Currency not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -140,17 +129,23 @@ class CurrencyRateService {
     }
 
     private checkPermissions(operationType: string) {
-        if (operationType === "read" && !(user.isInRole("codbex-currencies.Currencies.CurrencyRateReadOnly") || user.isInRole("codbex-currencies.Currencies.CurrencyRateFullAccess"))) {
+        if (operationType === "read" && !(user.isInRole("codbex-currencies.Currencies.CurrencyReadOnly") || user.isInRole("codbex-currencies.Currencies.CurrencyFullAccess"))) {
             throw new ForbiddenError();
         }
-        if (operationType === "write" && !user.isInRole("codbex-currencies.Currencies.CurrencyRateFullAccess")) {
+        if (operationType === "write" && !user.isInRole("codbex-currencies.Currencies.CurrencyFullAccess")) {
             throw new ForbiddenError();
         }
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Rate === null || entity.Rate === undefined) {
-            throw new ValidationError(`The 'Rate' property is required, provide a valid value`);
+        if (entity.Code?.length > 3) {
+            throw new ValidationError(`The 'Code' exceeds the maximum length of [3] characters`);
+        }
+        if (entity.Name?.length > 127) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [127] characters`);
+        }
+        if (entity.Numeric?.length > 3) {
+            throw new ValidationError(`The 'Numeric' exceeds the maximum length of [3] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

@@ -1,5 +1,0 @@
-{
-    "module": "codbex-currencies/gen/codbex-currencies/ui/launchpad/menu-help.js",
-    "extensionPoint": "codbex-currencies-menu",
-    "description": "codbex-currencies - Application Menu"
-}

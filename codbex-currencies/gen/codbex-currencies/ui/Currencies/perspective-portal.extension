@@ -1,5 +1,0 @@
-{
-    "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/perspective.js",
-    "extensionPoint": "portal",
-    "description": "codbex-currencies - Perspective - Currencies"
-}

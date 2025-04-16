@@ -7,12 +7,6 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 
 	let params = ViewParameters.get();
 	if (Object.keys(params).length) {
-		if (params?.entity?.DateFrom) {
-			params.entity.DateFrom = new Date(params.entity.DateFrom);
-		}
-		if (params?.entity?.DateTo) {
-			params.entity.DateTo = new Date(params.entity.DateTo);
-		}
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -41,19 +35,25 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.Id !== undefined) {
 			filter.$filter.equals.Id = entity.Id;
 		}
-		if (entity.Currency !== undefined) {
-			filter.$filter.equals.Currency = entity.Currency;
+		if (entity.Code) {
+			filter.$filter.contains.Code = entity.Code;
 		}
-		if (entity.DateFrom) {
-			filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
+		if (entity.Name) {
+			filter.$filter.contains.Name = entity.Name;
 		}
-		if (entity.DateTo) {
-			filter.$filter.lessThanOrEqual.Date = entity.DateTo;
+		if (entity.Numeric) {
+			filter.$filter.contains.Numeric = entity.Numeric;
+		}
+		if (entity.Rounding !== undefined) {
+			filter.$filter.equals.Rounding = entity.Rounding;
+		}
+		if (entity.Base !== undefined && entity.isBaseIndeterminate === false) {
+			filter.$filter.equals.Base = entity.Base;
 		}
 		if (entity.Rate !== undefined) {
 			filter.$filter.equals.Rate = entity.Rate;
 		}
-		Dialogs.postMessage({ topic: 'codbex-currencies.Currencies.CurrencyRate.entitySearch', data: {
+		Dialogs.postMessage({ topic: 'codbex-currencies.Settings.Currency.entitySearch', data: {
 			entity: entity,
 			filter: filter
 		}});
@@ -65,8 +65,17 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		$scope.filter();
 	};
 
+	$scope.alert = (message) => {
+		if (message) Dialogs.showAlert({
+			title: 'Description',
+			message: message,
+			type: AlertTypes.Information,
+			preformatted: true,
+		});
+	};
+
 	$scope.cancel = () => {
-		Dialogs.closeWindow({ id: 'CurrencyRate-filter' });
+		Dialogs.closeWindow({ id: 'Currency-filter' });
 	};
 
 	$scope.clearErrorMessage = () => {
