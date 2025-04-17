@@ -6,11 +6,11 @@
 const viewData = {
     id: 'CurrencyRate',
     label: 'CurrencyRate',
-    region: 'bottom',
-    lazyLoad: false,
-	autoFocusTab: true,
-    path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/index.html',
-    perspectiveName: 'Currencies'
+    region: 'center',
+    lazyLoad: true,
+	autoFocusTab: false,
+    path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Settings/CurrencyRate/index.html',
+    perspectiveName: 'Settings'
 };
 if (typeof exports !== 'undefined') {
 	exports.getView = () => viewData;

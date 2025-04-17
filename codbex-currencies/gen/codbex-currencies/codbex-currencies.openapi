@@ -10,7 +10,7 @@ servers:
   - url: /services/ts
 tags:
   - name: Settings
-  - name: Currencies
+  - name: Settings
 paths:
   /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts:
     get:
@@ -420,7 +420,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateService.ts:
     get:
       summary: List CurrencyRate
       parameters:
@@ -441,7 +441,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Currencies
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -472,7 +472,7 @@ paths:
     post:
       summary: Create CurrencyRate
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:
@@ -504,7 +504,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts/{id}:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateService.ts/{id}:
     get:
       summary: Get CurrencyRate by Id
       parameters:
@@ -515,7 +515,7 @@ paths:
           schema:
             type: string
       tags:
-        - Currencies
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -553,7 +553,7 @@ paths:
           schema:
             type: string
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:
@@ -601,7 +601,7 @@ paths:
           schema:
             type: string
       tags:
-        - Currencies
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -623,11 +623,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts/count:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateService.ts/count:
     get:
       summary: Count the number of CurrencyRate
       tags:
-        - Currencies
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -651,7 +651,7 @@ paths:
     post:
       summary: Count the number of CurrencyRate by CurrencyRateFilterOptions
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:
@@ -725,11 +725,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts/search:
+  /codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateService.ts/search:
     post:
       summary: Search CurrencyRate by CurrencyRateFilterOptions
       tags:
-        - Currencies
+        - Settings
       requestBody:
         content:
           application/json:

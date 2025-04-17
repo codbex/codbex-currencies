@@ -14,17 +14,14 @@
 	</head>
 
 	<body class="bk-vbox">
-		<bk-message-page glyph="sap-icon--hint" ng-show="data == null">
-			<bk-message-page-title>Select a record to get a list of it's details.</bk-message-page-title>
-		</bk-message-page>
-
-		<bk-toolbar has-title="true" ng-hide="data == null">
+		<bk-toolbar has-title="true">
 			<bk-toolbar-title>Items <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
 			<bk-button compact="true" state="transparent" label="Filter" ng-click="openFilter()"></bk-button>
 			<bk-button ng-repeat="action in pageActions track by $index" compact="true" state="transparent" label="{{action.label}}" ng-click="triggerPageAction(action)"></bk-button>
 			<bk-toolbar-spacer></bk-toolbar-spacer>
-			<bk-button compact="true" state="emphasized" label="Create" ng-click="createEntity()" ng-disabled="selectedMainEntityId == null"></bk-button>
+			<bk-button compact="true" state="emphasized" label="Create" ng-click="createEntity()"></bk-button>
 		</bk-toolbar>
+
 		<bk-scrollbar class="bk-full-height" ng-hide="data == null">
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
@@ -38,7 +35,8 @@
 					<tr bk-table-row hoverable="true" ng-show="data.length == 0">
 						<td bk-table-cell no-data="true">No data available.</td>
 					</tr>
-					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index"
+						selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<bk-input type="date" ng-model="next.Date" ng-readonly="true"></bk-input>
 						</td>
@@ -46,11 +44,12 @@
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
-									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="Table Row Menu Button" ng-click="setTristate()"></bk-button>
+									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="Table Row Menu Button" ng-click="setTristate()">
+									</bk-button>
 								</bk-popover-control>
 								<bk-popover-body align="bottom-right">
 									<bk-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
-										<bk-menu-item ng-repeat="action in entityActions" title="{{action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
+										<bk-menu-item ng-repeat="action in entityActions track by $index" title="{{action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
 										<bk-menu-item title="View Details" ng-click="openDetails(next)"></bk-menu-item>
 										<bk-menu-item title="Edit" ng-click="updateEntity(next)"></bk-menu-item>
 										<bk-menu-item title="Delete" ng-click="deleteEntity(next)"></bk-menu-item>
