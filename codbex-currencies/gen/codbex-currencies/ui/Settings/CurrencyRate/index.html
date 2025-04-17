@@ -26,6 +26,7 @@
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
+						<th bk-table-header-cell>Currency</th>
 						<th bk-table-header-cell>Date</th>
 						<th bk-table-header-cell>Rate</th>
 						<th bk-table-header-cell></th>
@@ -37,6 +38,9 @@
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index"
 						selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsCurrencyValue(next.Currency)}}
+						</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							<bk-input type="date" ng-model="next.Date" ng-readonly="true"></bk-input>
 						</td>

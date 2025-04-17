@@ -76,7 +76,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Id,
-					text: e.Name
+					text: e.Code
 				}
 			});
 		}, (error) => {
