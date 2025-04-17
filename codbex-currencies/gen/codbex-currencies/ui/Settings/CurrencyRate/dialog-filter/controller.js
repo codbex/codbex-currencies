@@ -16,6 +16,7 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
+		$scope.optionsCurrency = params.optionsCurrency;
 	}
 
 	$scope.filter = () => {
@@ -53,7 +54,7 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.Rate !== undefined) {
 			filter.$filter.equals.Rate = entity.Rate;
 		}
-		Dialogs.postMessage({ topic: 'codbex-currencies.Currencies.CurrencyRate.entitySearch', data: {
+		Dialogs.postMessage({ topic: 'codbex-currencies.Settings.CurrencyRate.entitySearch', data: {
 			entity: entity,
 			filter: filter
 		}});
@@ -63,6 +64,15 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 	$scope.resetFilter = () => {
 		$scope.entity = {};
 		$scope.filter();
+	};
+
+	$scope.alert = (message) => {
+		if (message) Dialogs.showAlert({
+			title: 'Description',
+			message: message,
+			type: AlertTypes.Information,
+			preformatted: true,
+		});
 	};
 
 	$scope.cancel = () => {

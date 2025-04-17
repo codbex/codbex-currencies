@@ -6,8 +6,8 @@
 const viewData = {
     id: 'CurrencyRate-details',
     label: 'CurrencyRate',
-    path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/dialog-window/index.html',
-    perspectiveName: 'Currencies'
+    path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Settings/CurrencyRate/dialog-window/index.html',
+    perspectiveName: 'Settings'
 };
 if (typeof exports !== 'undefined') {
     exports.getView = () => viewData;

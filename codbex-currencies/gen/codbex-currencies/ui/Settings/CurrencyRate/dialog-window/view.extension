@@ -1,5 +1,5 @@
 {
-    "module": "codbex-currencies/gen/codbex-currencies/ui/Currencies/Currency/CurrencyRate/dialog-filter/view.js",
+    "module": "codbex-currencies/gen/codbex-currencies/ui/Settings/CurrencyRate/dialog-window/view.js",
     "extensionPoint": "application-windows",
     "description": "codbex-currencies - Application Dialog Window",
     "role": "codbex-currencies.Currencies.CurrencyRateReadOnly,codbex-currencies.Currencies.CurrencyRateFullAccess"

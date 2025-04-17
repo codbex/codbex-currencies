@@ -217,7 +217,7 @@ export class CurrencyRateRepository {
     }
 
     private async triggerEvent(data: CurrencyRateEntityEvent | CurrencyRateUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-currencies-Currencies-CurrencyRate", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-currencies-Settings-CurrencyRate", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -225,6 +225,6 @@ export class CurrencyRateRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-currencies-Currencies-CurrencyRate").send(JSON.stringify(data));
+        producer.topic("codbex-currencies-Settings-CurrencyRate").send(JSON.stringify(data));
     }
 }

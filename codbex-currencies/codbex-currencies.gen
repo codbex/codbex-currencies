@@ -26,7 +26,8 @@
   "perspectives": {
     "Settings": {
       "views": [
-        "Currency"
+        "Currency",
+        "CurrencyRate"
       ],
       "name": "Settings",
       "label": "Settings",
@@ -34,18 +35,6 @@
       "order": "100",
       "navId": "",
       "icon": "/services/web/resources/unicons/copy.svg",
-      "role": ""
-    },
-    "Currencies": {
-      "views": [
-        "CurrencyRate"
-      ],
-      "name": "Currencies",
-      "label": "Currencies",
-      "header": "",
-      "order": "300",
-      "navId": "reference-data-navigation-group",
-      "icon": "/services/web/resources/unicons/dollar-alt.svg",
       "role": ""
     }
   },
@@ -286,17 +275,17 @@
           "dataType": "INTEGER",
           "description": "",
           "name": "Currency",
-          "relationshipCardinality": "1_n",
-          "relationshipName": "CurrencyRate_Currency",
-          "relationshipType": "COMPOSITION",
           "tooltip": "",
-          "widgetIsMajor": false,
+          "widgetDropDownKey": "Id",
+          "widgetDropDownValue": "Code",
+          "widgetIsMajor": true,
           "widgetLength": "20",
-          "widgetSize": "fd-col-md--2 fd-col--3",
-          "widgetType": "TEXTBOX",
+          "widgetSize": "",
+          "widgetType": "DROPDOWN",
+          "relationshipName": "CurrencyRate_Currency",
           "relationshipEntityName": "Currency",
           "relationshipEntityPerspectiveName": "Settings",
-          "relationshipEntityPerspectiveLabel": "",
+          "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -304,7 +293,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Currency",
-          "widgetDropdownUrl": "",
+          "widgetDropdownUrl": "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -365,31 +354,28 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE_DETAILS",
       "menuIndex": "100",
       "menuKey": "currencyrate",
       "menuLabel": "CurrencyRate",
       "name": "CurrencyRate",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
-      "perspectiveLabel": "Currencies",
-      "perspectiveName": "Currencies",
-      "perspectiveNavId": "reference-data-navigation-group",
-      "perspectiveOrder": "300",
+      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+      "perspectiveName": "Settings",
+      "perspectiveNavId": "",
+      "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
       "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess",
       "title": "CurrencyRate",
       "tooltip": "CurrencyRate",
-      "type": "DEPENDENT",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
       ],
       "primaryKeysString": "Id",
-      "masterEntity": "Currency",
-      "masterEntityId": "Currency",
+      "hasDropdowns": true,
       "hasDates": true
     }
   ]

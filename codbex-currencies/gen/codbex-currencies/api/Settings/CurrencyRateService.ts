@@ -1,12 +1,12 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { CurrencyRateRepository, CurrencyRateEntityOptions } from "../../dao/Currencies/CurrencyRateRepository";
+import { CurrencyRateRepository, CurrencyRateEntityOptions } from "../../dao/Settings/CurrencyRateRepository";
 import { user } from "sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-currencies-Currencies-CurrencyRate", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-currencies-Settings-CurrencyRate", ["validate"]);
 
 @Controller
 class CurrencyRateService {
@@ -22,17 +22,6 @@ class CurrencyRateService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
-            let Currency = parseInt(ctx.queryParameters.Currency);
-            Currency = isNaN(Currency) ? ctx.queryParameters.Currency : Currency;
-
-            if (Currency !== undefined) {
-                options.$filter = {
-                    equals: {
-                        Currency: Currency
-                    }
-                };
-            }
-
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
@@ -45,7 +34,7 @@ class CurrencyRateService {
             this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyRateService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
