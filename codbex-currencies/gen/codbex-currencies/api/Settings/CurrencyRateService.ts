@@ -78,7 +78,7 @@ class CurrencyRateService {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const options: DimensionEntityOptions = {
+            const options: CurrencyRateEntityOptions = {
                 $language: request.getLocale().slice(0, 2)
             };
             const entity = this.repository.findById(id, options);
