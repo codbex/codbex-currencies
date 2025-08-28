@@ -1,9 +1,14 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts';
 	}])
-	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'Currency successfully created';
+		let propertySuccessfullyUpdated = 'Currency successfully updated';
+
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -14,6 +19,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			update: 'Update Currency'
 		};
 		$scope.action = 'select';
+
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.formHeadSelect', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.formHeadCreate', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.formHeadUpdate', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-currencies:codbex-currencies-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-currencies:codbex-currencies-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+		});
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
@@ -28,16 +42,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-currencies.Settings.Currency.entityCreated', data: response.data });
-				Dialogs.showAlert({
-					title: 'Currency',
-					message: 'Currency successfully created',
-					type: AlertTypes.Success
+				Notifications.show({
+					title: LocaleService.t('codbex-currencies:codbex-currencies-model.t.CURRENCY'),
+					description: propertySuccessfullyCreated,
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to create Currency: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToCreate', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -49,16 +63,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-currencies.Settings.Currency.entityUpdated', data: response.data });
-				Dialogs.showAlert({
-					title: 'Currency',
-					message: 'Currency successfully updated',
-					type: AlertTypes.Success
+				Notifications.show({
+					title: LocaleService.t('codbex-currencies:codbex-currencies-model.t.CURRENCY'),
+					description: propertySuccessfullyUpdated,
+					type: 'positive'
 				});
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to update Currency: '${message}'`;
+					$scope.errorMessage = LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToUpdate', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -67,7 +81,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,

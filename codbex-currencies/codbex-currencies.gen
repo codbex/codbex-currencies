@@ -38,6 +38,7 @@
       "role": ""
     }
   },
+  "tprefix": "codbex-currencies-model",
   "models": [
     {
       "properties": [

@@ -6,6 +6,12 @@
 const viewData = {
     id: 'CurrencyRate-filter',
     label: 'CurrencyRate Filter',
+    translation: {
+        key: 'codbex-currencies:codbex-currencies-model.extName',
+        options: {
+            content: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCYRATE) $t(codbex-currencies:codbex-currencies-model.defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Settings/CurrencyRate/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };

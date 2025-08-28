@@ -1,4 +1,4 @@
-import { query } from "sdk/db";
+import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
@@ -95,12 +95,13 @@ export interface CurrencyEntityOptions {
     },
     $select?: (keyof CurrencyEntity)[],
     $sort?: string | (keyof CurrencyEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface CurrencyEntityEvent {
+export interface CurrencyEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<CurrencyEntity>;
@@ -111,7 +112,7 @@ interface CurrencyEntityEvent {
     }
 }
 
-interface CurrencyUpdateEntityEvent extends CurrencyEntityEvent {
+export interface CurrencyUpdateEntityEvent extends CurrencyEntityEvent {
     readonly previousEntity: CurrencyEntity;
 }
 
@@ -163,17 +164,18 @@ export class CurrencyRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(CurrencyRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(CurrencyRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: CurrencyEntityOptions): CurrencyEntity[] {
-        return this.dao.list(options).map((e: CurrencyEntity) => {
+    public findAll(options: CurrencyEntityOptions = {}): CurrencyEntity[] {
+        let list = this.dao.list(options).map((e: CurrencyEntity) => {
             EntityUtils.setBoolean(e, "Base");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): CurrencyEntity | undefined {
+    public findById(id: number, options: CurrencyEntityOptions = {}): CurrencyEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setBoolean(entity, "Base");
         return entity ?? undefined;

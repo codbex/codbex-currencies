@@ -1,4 +1,4 @@
-import { query } from "sdk/db";
+import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
@@ -68,12 +68,13 @@ export interface CurrencyRateEntityOptions {
     },
     $select?: (keyof CurrencyRateEntity)[],
     $sort?: string | (keyof CurrencyRateEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface CurrencyRateEntityEvent {
+export interface CurrencyRateEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<CurrencyRateEntity>;
@@ -84,7 +85,7 @@ interface CurrencyRateEntityEvent {
     }
 }
 
-interface CurrencyRateUpdateEntityEvent extends CurrencyRateEntityEvent {
+export interface CurrencyRateUpdateEntityEvent extends CurrencyRateEntityEvent {
     readonly previousEntity: CurrencyRateEntity;
 }
 
@@ -121,17 +122,18 @@ export class CurrencyRateRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(CurrencyRateRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(CurrencyRateRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: CurrencyRateEntityOptions): CurrencyRateEntity[] {
-        return this.dao.list(options).map((e: CurrencyRateEntity) => {
+    public findAll(options: CurrencyRateEntityOptions = {}): CurrencyRateEntity[] {
+        let list = this.dao.list(options).map((e: CurrencyRateEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): CurrencyRateEntity | undefined {
+    public findById(id: number, options: CurrencyRateEntityOptions = {}): CurrencyRateEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;

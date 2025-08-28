@@ -17,68 +17,68 @@
             <bk-message-strip class="fd-margin--md" ng-show="errorMessage" glyph="sap-icon--message-error" state="error" on-dismiss="clearErrorMessage()">{{ errorMessage }}</bk-message-strip>
 
             <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
-                <bk-form-group label="Currency Filter" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                <bk-form-group label="{{ 'codbex-currencies:codbex-currencies-model.defaults.formGrpFilter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCode" colon="true">Code</bk-form-label>
+                        	<bk-form-label for="idCode" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_CODE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Code'].$valid ? '' : 'error' }}" message="'Incorrect Input'">
+							<bk-form-input-message state="{{ forms.details['Code'].$valid ? '' : 'error' }}" text="{{'codbex-currencies:codbex-currencies-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idCode"
 	                                name="Code"
 	                                state="{{ forms.details['Code'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Code"
 									ng-maxlength="3.0"
 	                                type="text"
-	                                placeholder="Enter Code">
+	                                placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_CODE)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idName" colon="true">Name</bk-form-label>
+                        	<bk-form-label for="idName" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_NAME' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" message="'Incorrect Input'">
+							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" text="{{'codbex-currencies:codbex-currencies-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Name"
 									ng-maxlength="20.0"
 	                                type="text"
-	                                placeholder="Enter Name">
+	                                placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_NAME)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNumeric" colon="true">Numeric</bk-form-label>
+                        	<bk-form-label for="idNumeric" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_NUMERIC' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Numeric'].$valid ? '' : 'error' }}" message="'Incorrect Input'">
+							<bk-form-input-message state="{{ forms.details['Numeric'].$valid ? '' : 'error' }}" text="{{'codbex-currencies:codbex-currencies-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idNumeric"
 	                                name="Numeric"
 	                                state="{{ forms.details['Numeric'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Numeric"
 									ng-maxlength="3.0"
 	                                type="text"
-	                                placeholder="Enter Numeric">
+	                                placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_NUMERIC)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idRounding" colon="true">Rounding</bk-form-label>
+                        	<bk-form-label for="idRounding" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_ROUNDING' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idRounding"
 								name="Rounding"
 								state="{{ forms.details['Rounding'].$valid ? '' : 'error' }}"
 								ng-model="entity.Rounding"
-								placeholder="Enter Rounding">
+								placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_ROUNDING)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
@@ -92,19 +92,19 @@
 								indeterminate="entity.isBaseIndeterminate"
 								ng-click="entity.isBaseIndeterminate=false">
 	                        </bk-checkbox>
-                        	<bk-checkbox-label for="idBase">Base</bk-checkbox-label>
+                        	<bk-checkbox-label for="idBase">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_BASE' | t }}</bk-checkbox-label>
                         </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idRate" colon="true">Rate</bk-form-label>
+                        	<bk-form-label for="idRate" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_RATE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idRate"
 								name="Rate"
 								state="{{ forms.details['Rate'].$valid ? '' : 'error' }}"
 								ng-model="entity.Rate"
-								placeholder="Enter Rate">
+								placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_RATE)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
@@ -115,13 +115,13 @@
 		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="Filter" state="emphasized" ng-click="filter()"></bk-button>
+					<bk-button label="{{ 'codbex-currencies:codbex-currencies-model.defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Reset" ng-click="resetFilter()"></bk-button>
+					<bk-button label="{{ 'codbex-currencies:codbex-currencies-model.defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Cancel" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-currencies:codbex-currencies-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

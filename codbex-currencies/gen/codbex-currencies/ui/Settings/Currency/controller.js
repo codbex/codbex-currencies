@@ -1,9 +1,23 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts';
 	}])
-	.controller('PageController', ($scope, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete Currency? This action cannot be undone.',
+			deleteTitle: 'Delete Currency?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-currencies:codbex-currencies-model.defaults.deleteTitle', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+			translated.deleteConfirm = LocaleService.t('codbex-currencies:codbex-currencies-model.messages.deleteConfirm', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)' });
+		});
+
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataLimit = 20;
@@ -17,8 +31,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
+				maxWidth: action.maxWidth,
+				maxHeight: action.maxHeight,
 				closeButton: true
 			});
 		};
@@ -26,7 +42,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -80,17 +96,19 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				request.then((response) => {
 					$scope.data = response.data;
 				}, (error) => {
+					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'Currency',
-						message: `Unable to list/filter Currency: '${error.message}'`,
+						title: LocaleService.t('codbex-currencies:codbex-currencies-model.t.CURRENCY'),
+						message: LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToLF', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
 				});
 			}, (error) => {
+				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Currency',
-					message: `Unable to count Currency: '${error.message}'`,
+					title: LocaleService.t('codbex-currencies:codbex-currencies-model.t.CURRENCY'),
+					message: LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToCount', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -114,9 +132,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		};
 
-		$scope.openFilter = (entity) => {
+		$scope.openFilter = () => {
 			Dialogs.showWindow({
-				id: 'Currency-details',
+				id: 'Currency-filter',
 				params: {
 					entity: $scope.filterEntity,
 				},
@@ -149,16 +167,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.deleteEntity = (entity) => {
 			let id = entity.Id;
-			Dialog.showDialog({
-				title: 'Delete Currency?',
-				message: `Are you sure you want to delete Currency? This action cannot be undone.`,
+			Dialogs.showDialog({
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}]
 			}).then((buttonId) => {
 				if (buttonId === 'delete-btn-yes') {
@@ -168,8 +186,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'Currency',
-							message: `Unable to delete Currency: '${message}'`,
+							title: LocaleService.t('codbex-currencies:codbex-currencies-model.t.CURRENCY'),
+							message: LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToDelete', { name: '$t(codbex-currencies:codbex-currencies-model.t.CURRENCY)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);

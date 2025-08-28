@@ -6,6 +6,9 @@
 const viewData = {
     id: 'CurrencyRate-details',
     label: 'CurrencyRate',
+    translation: {
+        key: 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE',
+    },
     path: '/services/web/codbex-currencies/gen/codbex-currencies/ui/Settings/CurrencyRate/dialog-window/index.html',
     perspectiveName: 'Settings'
 };

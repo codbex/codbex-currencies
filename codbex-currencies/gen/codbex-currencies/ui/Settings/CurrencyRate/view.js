@@ -6,6 +6,9 @@
 const viewData = {
     id: 'CurrencyRate',
     label: 'CurrencyRate',
+    translation: {
+        key: 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE',
+    },
     region: 'center',
     lazyLoad: true,
 	autoFocusTab: false,
