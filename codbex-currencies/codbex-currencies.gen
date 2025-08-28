@@ -19,6 +19,7 @@
       "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess"
     }
   ],
+  "tprefix": "codbex-currencies-model",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
@@ -38,7 +39,6 @@
       "role": ""
     }
   },
-  "tprefix": "codbex-currencies-model",
   "models": [
     {
       "properties": [
@@ -226,6 +226,7 @@
       "menuIndex": "100",
       "menuKey": "currency",
       "menuLabel": "Currency",
+      "multilingual": "true",
       "name": "Currency",
       "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
@@ -286,7 +287,7 @@
           "relationshipName": "CurrencyRate_Currency",
           "relationshipEntityName": "Currency",
           "relationshipEntityPerspectiveName": "Settings",
-          "relationshipEntityPerspectiveLabel": "Entities",
+          "relationshipEntityPerspectiveLabel": "",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -358,6 +359,7 @@
       "menuIndex": "100",
       "menuKey": "currencyrate",
       "menuLabel": "CurrencyRate",
+      "multilingual": "false",
       "name": "CurrencyRate",
       "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
