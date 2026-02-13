@@ -28,36 +28,31 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Currency !== undefined) {
-			filter.$filter.equals.Currency = entity.Currency;
+			const condition = { propertyName: 'Currency', operator: 'EQ', value: entity.Currency };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.DateFrom) {
-			filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
+			const condition = { propertyName: 'Date', operator: 'GE', value: entity.DateFrom };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.DateTo) {
-			filter.$filter.lessThanOrEqual.Date = entity.DateTo;
+			const condition = { propertyName: 'Date', operator: 'LE', value: entity.DateTo };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Rate !== undefined) {
-			filter.$filter.equals.Rate = entity.Rate;
+			const condition = { propertyName: 'Rate', operator: 'EQ', value: entity.Rate };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-currencies.Settings.CurrencyRate.entitySearch', data: {
 			entity: entity,

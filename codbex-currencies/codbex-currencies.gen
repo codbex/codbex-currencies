@@ -1,29 +1,16 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://codbex.com",
+  "brandUrl": "https://www.codbex.com/",
   "title": "Currencies Management Module",
   "description": "Managing currencies data",
-  "dataSource": "DefaultDB",
-  "fileName": "codbex-currencies",
-  "genFolderName": "codbex-currencies",
-  "roles": [
-    {
-      "entityName": "Currency",
-      "roleRead": "codbex-currencies.Currencies.CurrencyReadOnly",
-      "roleWrite": "codbex-currencies.Currencies.CurrencyFullAccess"
-    },
-    {
-      "entityName": "CurrencyRate",
-      "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
-      "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess"
-    }
-  ],
-  "tprefix": "codbex-currencies-model",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
-  "templateId": "template-application-angular/template/template.js",
+  "templateId": "template-application-angular-v2/template/template.js",
+  "fileName": "codbex-currencies",
+  "genFolderName": "codbex-currencies",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -39,6 +26,19 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Currency",
+      "roleRead": "codbex-currencies.Currencies.CurrencyReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyFullAccess"
+    },
+    {
+      "entityName": "CurrencyRate",
+      "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess"
+    }
+  ],
+  "tprefix": "codbex-currencies-model",
   "models": [
     {
       "properties": [
