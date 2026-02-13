@@ -103,7 +103,7 @@
                 "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "",
+                "layoutType": "MANAGE",
                 "menuIndex": "100",
                 "menuKey": "currency",
                 "menuLabel": "Currency",
@@ -111,7 +111,7 @@
                 "name": "Currency",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "",
+                "perspectiveLabel": "Entities",
                 "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
@@ -154,7 +154,7 @@
                         "relationshipName": "CurrencyRate_Currency",
                         "relationshipEntityName": "Currency",
                         "relationshipEntityPerspectiveName": "Settings",
-                        "relationshipEntityPerspectiveLabel": ""
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "dataName": "CURRENCYRATE_DATE",

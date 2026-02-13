@@ -61,6 +61,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -85,6 +86,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Code",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -111,6 +113,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -137,6 +140,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Numeric",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -162,6 +166,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Rounding",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -185,6 +190,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Base",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
           "inputRule": ""
@@ -208,6 +214,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Rate",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -267,6 +274,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -287,7 +295,7 @@
           "relationshipName": "CurrencyRate_Currency",
           "relationshipEntityName": "Currency",
           "relationshipEntityPerspectiveName": "Settings",
-          "relationshipEntityPerspectiveLabel": "",
+          "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
@@ -296,6 +304,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Currency",
           "widgetDropdownUrl": "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts",
+          "widgetDropdownControllerUrl": "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -319,6 +328,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Date",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
           "isDateType": true,
@@ -343,6 +353,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Rate",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
