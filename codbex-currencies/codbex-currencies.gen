@@ -3,7 +3,7 @@
   "brand": "codbex",
   "brandUrl": "https://www.codbex.com/",
   "title": "Currencies Management Module",
-  "description": "Managing currencies data",
+  "description": "Managing Currencies Data",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
