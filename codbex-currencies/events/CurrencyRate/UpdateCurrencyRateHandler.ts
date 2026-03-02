@@ -5,7 +5,7 @@ export const trigger = (event) => {
     const operation = event.operation;
     const currencyRate = event.entity;
     if (operation === "create") {
-        const currency = CurrencyDao.findById(currencyRate.Currency);
+        const currency = CurrencyDao.findById(currencyRate.Currency)!;
         currency.Rate = currencyRate.Rate;
         CurrencyDao.update(currency);
     }
