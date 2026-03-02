@@ -4,13 +4,26 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Currencies Management Module",
   "description": "Managing Currencies Data",
+  "fileName": "codbex-currencies",
+  "genFolderName": "codbex-currencies",
+  "dataSource": "DefaultDB",
+  "roles": [
+    {
+      "entityName": "Currency",
+      "roleRead": "codbex-currencies.Currencies.CurrencyReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyFullAccess"
+    },
+    {
+      "entityName": "CurrencyRate",
+      "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
+      "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess"
+    }
+  ],
+  "tprefix": "codbex-currencies-model",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
   "templateId": "template-application-angular-v2/template/template.js",
-  "fileName": "codbex-currencies",
-  "genFolderName": "codbex-currencies",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -26,23 +39,11 @@
       "role": ""
     }
   },
-  "roles": [
-    {
-      "entityName": "Currency",
-      "roleRead": "codbex-currencies.Currencies.CurrencyReadOnly",
-      "roleWrite": "codbex-currencies.Currencies.CurrencyFullAccess"
-    },
-    {
-      "entityName": "CurrencyRate",
-      "roleRead": "codbex-currencies.Currencies.CurrencyRateReadOnly",
-      "roleWrite": "codbex-currencies.Currencies.CurrencyRateFullAccess"
-    }
-  ],
-  "tprefix": "codbex-currencies-model",
   "models": [
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "CURRENCY_ID",
           "dataNullable": true,
@@ -67,22 +68,23 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "3",
           "dataName": "CURRENCY_CODE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "VARCHAR",
+          "dataUnique": true,
           "description": "",
+          "isRequiredProperty": true,
           "name": "Code",
           "tooltip": "",
           "widgetIsMajor": true,
           "widgetLength": "3",
           "widgetSize": "fd-col-md--2 fd-col--3",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Code",
           "widgetDropdownUrl": "",
@@ -94,22 +96,23 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "127",
           "dataName": "CURRENCY_NAME",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "VARCHAR",
           "description": "",
+          "isRequiredProperty": true,
           "name": "Name",
           "tooltip": "",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "fd-col-md--6 fd-col--9",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Name",
           "widgetDropdownUrl": "",
@@ -121,22 +124,23 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "3",
           "dataName": "CURRENCY_NUMERIC",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "VARCHAR",
+          "dataUnique": true,
           "description": "",
+          "isRequiredProperty": true,
           "name": "Numeric",
           "tooltip": "",
           "widgetIsMajor": true,
           "widgetLength": "3",
           "widgetSize": "fd-col-md--2 fd-col--3",
           "widgetType": "TEXTBOX",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Numeric",
           "widgetDropdownUrl": "",
@@ -148,21 +152,22 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "CURRENCY_ROUNDING",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "INTEGER",
           "description": "",
+          "isRequiredProperty": true,
           "name": "Rounding",
           "tooltip": "",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "fd-col-md--2 fd-col--3",
           "widgetType": "NUMBER",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Rounding",
           "widgetDropdownUrl": "",
@@ -172,6 +177,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "CURRENCY_BASE",
           "dataNullable": true,
           "dataType": "BOOLEAN",
@@ -196,21 +202,22 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "CURRENCY_RATE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "DOUBLE",
           "description": "",
+          "isRequiredProperty": true,
           "name": "Rate",
           "tooltip": "",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "fd-col-md--4 fd-col--6",
           "widgetType": "NUMBER",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Rate",
           "widgetDropdownUrl": "",
@@ -256,6 +263,7 @@
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "CURRENCYRATE_ID",
           "dataNullable": true,
@@ -280,10 +288,12 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "CURRENCYRATE_CURRENCY",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "INTEGER",
           "description": "",
+          "isRequiredProperty": true,
           "name": "Currency",
           "tooltip": "",
           "widgetDropDownKey": "Id",
@@ -296,11 +306,10 @@
           "relationshipEntityName": "Currency",
           "relationshipEntityPerspectiveName": "Settings",
           "relationshipEntityPerspectiveLabel": "Entities",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Currency",
           "widgetDropdownUrl": "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts",
@@ -310,21 +319,22 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "CURRENCYRATE_DATE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "DATE",
           "description": "",
+          "isRequiredProperty": true,
           "name": "Date",
           "tooltip": "",
           "widgetIsMajor": true,
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "DATE",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "Date",
           "widgetDropdownUrl": "",
@@ -335,8 +345,9 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "CURRENCYRATE_RATE",
-          "dataNullable": true,
+          "dataNullable": false,
           "dataType": "DOUBLE",
           "description": "",
           "isRequiredProperty": true,
@@ -346,7 +357,7 @@
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "NUMBER",
-          "dataNotNull": false,
+          "dataNotNull": true,
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,

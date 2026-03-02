@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CurrencyRateEntity')
 @Table('CODBEX_CURRENCYRATE')
@@ -18,23 +18,20 @@ export class CurrencyRateEntity {
     @Column({
         name: 'CURRENCYRATE_CURRENCY',
         type: 'integer',
-        nullable: true,
     })
-    public Currency?: number;
+    public Currency!: number;
 
     @Documentation('Date')
     @Column({
         name: 'CURRENCYRATE_DATE',
         type: 'date',
-        nullable: true,
     })
-    public Date?: Date;
+    public Date!: Date;
 
     @Documentation('Rate')
     @Column({
         name: 'CURRENCYRATE_RATE',
         type: 'double',
-        nullable: true,
     })
     public Rate!: number;
 

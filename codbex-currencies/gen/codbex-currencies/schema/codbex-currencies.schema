@@ -15,24 +15,22 @@
                     {
                         "type": "VARCHAR",
                         "length": 3,
-                        "nullable": true,
+                        "unique": true,
                         "name": "CURRENCY_CODE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 127,
-                        "nullable": true,
                         "name": "CURRENCY_NAME"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 3,
-                        "nullable": true,
+                        "unique": true,
                         "name": "CURRENCY_NUMERIC"
                     },
                     {
                         "type": "INTEGER",
-                        "nullable": true,
                         "name": "CURRENCY_ROUNDING"
                     },
                     {
@@ -42,7 +40,6 @@
                     },
                     {
                         "type": "DOUBLE",
-                        "nullable": true,
                         "name": "CURRENCY_RATE"
                     }
                 ]
@@ -60,17 +57,14 @@
                     },
                     {
                         "type": "INTEGER",
-                        "nullable": true,
                         "name": "CURRENCYRATE_CURRENCY"
                     },
                     {
                         "type": "DATE",
-                        "nullable": true,
                         "name": "CURRENCYRATE_DATE"
                     },
                     {
                         "type": "DOUBLE",
-                        "nullable": true,
                         "name": "CURRENCYRATE_RATE"
                     }
                 ]

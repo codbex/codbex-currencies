@@ -6,15 +6,15 @@ import { EntityUtils } from "../utils/EntityUtils";
 
 export interface CurrencyRateEntity {
     readonly Id: number;
-    Currency?: number;
-    Date?: Date;
-    Rate?: number;
+    Currency: number;
+    Date: Date;
+    Rate: number;
 }
 
 export interface CurrencyRateCreateEntity {
-    readonly Currency?: number;
-    readonly Date?: Date;
-    readonly Rate?: number;
+    readonly Currency: number;
+    readonly Date: Date;
+    readonly Rate: number;
 }
 
 export interface CurrencyRateUpdateEntity extends CurrencyRateCreateEntity {
@@ -105,16 +105,19 @@ export class CurrencyRateRepository {
                 name: "Currency",
                 column: "CURRENCYRATE_CURRENCY",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Date",
                 column: "CURRENCYRATE_DATE",
                 type: "DATE",
+                required: true
             },
             {
                 name: "Rate",
                 column: "CURRENCYRATE_RATE",
                 type: "DOUBLE",
+                required: true
             }
         ]
     };

@@ -164,14 +164,29 @@ class CurrencyController {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Code === null || entity.Code === undefined) {
+            throw new ValidationError(`The 'Code' property is required, provide a valid value`);
+        }
         if (entity.Code?.length > 3) {
             throw new ValidationError(`The 'Code' exceeds the maximum length of [3] characters`);
+        }
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
         }
         if (entity.Name?.length > 127) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [127] characters`);
         }
+        if (entity.Numeric === null || entity.Numeric === undefined) {
+            throw new ValidationError(`The 'Numeric' property is required, provide a valid value`);
+        }
         if (entity.Numeric?.length > 3) {
             throw new ValidationError(`The 'Numeric' exceeds the maximum length of [3] characters`);
+        }
+        if (entity.Rounding === null || entity.Rounding === undefined) {
+            throw new ValidationError(`The 'Rounding' property is required, provide a valid value`);
+        }
+        if (entity.Rate === null || entity.Rate === undefined) {
+            throw new ValidationError(`The 'Rate' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

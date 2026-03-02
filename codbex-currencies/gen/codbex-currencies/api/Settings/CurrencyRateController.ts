@@ -164,6 +164,12 @@ class CurrencyRateController {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Currency === null || entity.Currency === undefined) {
+            throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
+        }
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        }
         if (entity.Rate === null || entity.Rate === undefined) {
             throw new ValidationError(`The 'Rate' property is required, provide a valid value`);
         }

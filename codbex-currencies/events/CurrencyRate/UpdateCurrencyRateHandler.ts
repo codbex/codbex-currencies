@@ -1,4 +1,4 @@
-import { CurrencyRepository } from "../../gen/codbex-currencies/dao/Settings/CurrencyRepository";
+import { CurrencyRepository } from "../../gen/codbex-currencies/data/Settings/CurrencyRepository";
 
 export const trigger = (event) => {
     const CurrencyDao = new CurrencyRepository();
