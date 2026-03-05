@@ -4,6 +4,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "CURRENCY_ID",
                         "dataNullable": "true",
@@ -18,11 +19,14 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "CURRENCY_CODE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "VARCHAR",
+                        "dataUnique": "true",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Code",
                         "tooltip": "",
                         "widgetIsMajor": "true",
@@ -31,24 +35,29 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "127",
                         "dataName": "CURRENCY_NAME",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "VARCHAR",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Name",
                         "tooltip": "",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "127",
                         "widgetSize": "fd-col-md--6 fd-col--9",
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "CURRENCY_NUMERIC",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "VARCHAR",
+                        "dataUnique": "true",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Numeric",
                         "tooltip": "",
                         "widgetIsMajor": "true",
@@ -57,10 +66,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCY_ROUNDING",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Rounding",
                         "tooltip": "",
                         "widgetIsMajor": "true",
@@ -69,6 +80,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCY_BASE",
                         "dataNullable": "true",
                         "dataType": "BOOLEAN",
@@ -81,10 +93,12 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCY_RATE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "DOUBLE",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Rate",
                         "tooltip": "",
                         "widgetIsMajor": "true",
@@ -125,6 +139,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "CURRENCYRATE_ID",
                         "dataNullable": "true",
@@ -139,10 +154,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCYRATE_CURRENCY",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Currency",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
@@ -157,10 +174,12 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCYRATE_DATE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "DATE",
                         "description": "",
+                        "isRequiredProperty": "true",
                         "name": "Date",
                         "tooltip": "",
                         "widgetIsMajor": "true",
@@ -169,8 +188,9 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCYRATE_RATE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "DOUBLE",
                         "description": "",
                         "isRequiredProperty": "true",

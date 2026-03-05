@@ -6,21 +6,21 @@ import { EntityUtils } from "../utils/EntityUtils";
 
 export interface CurrencyEntity {
     readonly Id: number;
-    Code?: string;
-    Name?: string;
-    Numeric?: string;
-    Rounding?: number;
+    Code: string;
+    Name: string;
+    Numeric: string;
+    Rounding: number;
     Base?: boolean;
-    Rate?: number;
+    Rate: number;
 }
 
 export interface CurrencyCreateEntity {
-    readonly Code?: string;
-    readonly Name?: string;
-    readonly Numeric?: string;
-    readonly Rounding?: number;
+    readonly Code: string;
+    readonly Name: string;
+    readonly Numeric: string;
+    readonly Rounding: number;
     readonly Base?: boolean;
-    readonly Rate?: number;
+    readonly Rate: number;
 }
 
 export interface CurrencyUpdateEntity extends CurrencyCreateEntity {
@@ -132,21 +132,25 @@ export class CurrencyRepository {
                 name: "Code",
                 column: "CURRENCY_CODE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Name",
                 column: "CURRENCY_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Numeric",
                 column: "CURRENCY_NUMERIC",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Rounding",
                 column: "CURRENCY_ROUNDING",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Base",
@@ -157,6 +161,7 @@ export class CurrencyRepository {
                 name: "Rate",
                 column: "CURRENCY_RATE",
                 type: "DOUBLE",
+                required: true
             }
         ]
     };

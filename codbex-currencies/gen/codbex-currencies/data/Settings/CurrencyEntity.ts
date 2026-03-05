@@ -1,4 +1,4 @@
-import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
+import { Entity, Table, Id, Generated, Column, Documentation, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy} from '@aerokit/sdk/db'
 
 @Entity('CurrencyEntity')
 @Table('CODBEX_CURRENCY')
@@ -19,35 +19,31 @@ export class CurrencyEntity {
         name: 'CURRENCY_CODE',
         type: 'string',
         length: 3,
-        nullable: true,
     })
-    public Code?: string;
+    public Code!: string;
 
     @Documentation('Name')
     @Column({
         name: 'CURRENCY_NAME',
         type: 'string',
         length: 127,
-        nullable: true,
     })
-    public Name?: string;
+    public Name!: string;
 
     @Documentation('Numeric')
     @Column({
         name: 'CURRENCY_NUMERIC',
         type: 'string',
         length: 3,
-        nullable: true,
     })
-    public Numeric?: string;
+    public Numeric!: string;
 
     @Documentation('Rounding')
     @Column({
         name: 'CURRENCY_ROUNDING',
         type: 'integer',
-        nullable: true,
     })
-    public Rounding?: number;
+    public Rounding!: number;
 
     @Documentation('Base')
     @Column({
@@ -61,9 +57,8 @@ export class CurrencyEntity {
     @Column({
         name: 'CURRENCY_RATE',
         type: 'double',
-        nullable: true,
     })
-    public Rate?: number;
+    public Rate!: number;
 
 }
 
