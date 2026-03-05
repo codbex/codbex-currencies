@@ -45,7 +45,7 @@
                         "name": "Name",
                         "tooltip": "",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "127",
                         "widgetSize": "fd-col-md--6 fd-col--9",
                         "widgetType": "TEXTBOX"
                     },
