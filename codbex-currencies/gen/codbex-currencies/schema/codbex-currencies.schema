@@ -41,6 +41,28 @@
                     {
                         "type": "DOUBLE",
                         "name": "CURRENCY_RATE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCY_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCY_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCY_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCY_UPDATEDBY"
                     }
                 ]
             },
@@ -66,6 +88,28 @@
                     {
                         "type": "DOUBLE",
                         "name": "CURRENCYRATE_RATE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCYRATE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCYRATE_UPDATEDBY"
                     }
                 ]
             },

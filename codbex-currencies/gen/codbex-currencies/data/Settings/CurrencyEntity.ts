@@ -60,6 +60,44 @@ export class CurrencyEntity {
     })
     public Rate!: number;
 
+    @Documentation('CreatedAt')
+    @Column({
+        name: 'CURRENCY_CREATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @CreatedAt()
+    public CreatedAt?: Date;
+
+    @Documentation('CreatedBy')
+    @Column({
+        name: 'CURRENCY_CREATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @CreatedBy()
+    public CreatedBy?: string;
+
+    @Documentation('UpdatedAt')
+    @Column({
+        name: 'CURRENCY_UPDATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @UpdatedAt()
+    public UpdatedAt?: Date;
+
+    @Documentation('UpdatedBy')
+    @Column({
+        name: 'CURRENCY_UPDATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @UpdatedBy()
+    public UpdatedBy?: string;
+
 }
 
 (new CurrencyEntity());

@@ -74,11 +74,19 @@
       "CURRENCY_ROUNDING": "Rounding",
       "CURRENCY_BASE": "Base",
       "CURRENCY_RATE": "Rate",
+      "CURRENCY_CREATEDAT": "CreatedAt",
+      "CURRENCY_CREATEDBY": "CreatedBy",
+      "CURRENCY_UPDATEDAT": "UpdatedAt",
+      "CURRENCY_UPDATEDBY": "UpdatedBy",
       "CURRENCYRATE": "CurrencyRate",
       "CURRENCYRATE_ID": "Id",
       "CURRENCYRATE_CURRENCY": "Currency",
       "CURRENCYRATE_DATE": "Date",
       "CURRENCYRATE_RATE": "Rate",
+      "CURRENCYRATE_CREATEDAT": "CreatedAt",
+      "CURRENCYRATE_CREATEDBY": "CreatedBy",
+      "CURRENCYRATE_UPDATEDAT": "UpdatedAt",
+      "CURRENCYRATE_UPDATEDBY": "UpdatedBy",
       "Currencies": "Currencies"
     }
   }

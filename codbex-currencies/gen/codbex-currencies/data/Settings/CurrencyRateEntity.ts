@@ -35,6 +35,44 @@ export class CurrencyRateEntity {
     })
     public Rate!: number;
 
+    @Documentation('CreatedAt')
+    @Column({
+        name: 'CURRENCYRATE_CREATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @CreatedAt()
+    public CreatedAt?: Date;
+
+    @Documentation('CreatedBy')
+    @Column({
+        name: 'CURRENCYRATE_CREATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @CreatedBy()
+    public CreatedBy?: string;
+
+    @Documentation('UpdatedAt')
+    @Column({
+        name: 'CURRENCYRATE_UPDATEDAT',
+        type: 'timestamp',
+        nullable: true,
+    })
+    @UpdatedAt()
+    public UpdatedAt?: Date;
+
+    @Documentation('UpdatedBy')
+    @Column({
+        name: 'CURRENCYRATE_UPDATEDBY',
+        type: 'string',
+        length: 20,
+        nullable: true,
+    })
+    @UpdatedBy()
+    public UpdatedBy?: string;
+
 }
 
 (new CurrencyRateEntity());

@@ -31,6 +31,10 @@
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_ROUNDING' | t:'Rounding' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_BASE' | t:'Base' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_RATE' | t:'Rate' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_CREATEDAT' | t:'CreatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_CREATEDBY' | t:'CreatedBy' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_UPDATEDAT' | t:'UpdatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_UPDATEDBY' | t:'UpdatedBy' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -49,6 +53,10 @@
 							<bk-checkbox-label for="idBase" empty="true"></bk-checkbox-label>
 						</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Rate}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedBy}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>

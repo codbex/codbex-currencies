@@ -28,6 +28,10 @@
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_CURRENCY' | t:'Currency' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_DATE' | t:'Date' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_RATE' | t:'Rate' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_CREATEDAT' | t:'CreatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_CREATEDBY' | t:'CreatedBy' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_UPDATEDAT' | t:'UpdatedAt' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_UPDATEDBY' | t:'UpdatedBy' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
@@ -44,6 +48,10 @@
 							<bk-input type="date" ng-model="next.Date" ng-readonly="true"></bk-input>
 						</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Rate}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.CreatedBy}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedAt}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.UpdatedBy}}</td>
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
