@@ -23,10 +23,10 @@
 | Rounding  | INTEGER    | Not null                  | Rounding value for the currency.         |
 | Base      | BOOLEAN    | Nullable                  | Indicates if this is the base currency.  |
 | Rate      | DOUBLE     | Not null                  | Exchange rate of the currency.           |
-| CreatedAt | TIMESTAMP  | Audit, Nullable                  | Timestamp when the currency was created. |
-| CreatedBy | VARCHAR    | Audit, Length: 20, Nullable      | User who created the currency.           |
-| UpdatedAt | TIMESTAMP  | Audit, Nullable                  | Timestamp when the currency was updated. |
-| UpdatedBy | VARCHAR    | Audit, Length: 20, Nullable      | User who updated the currency.           |
+| CreatedAt | TIMESTAMP  | Audit, Nullable                  | Timestamp when the entry was created. |
+| CreatedBy | VARCHAR    | Audit, Length: 20, Nullable      | User who created the entry.           |
+| UpdatedAt | TIMESTAMP  | Audit, Nullable                  | Timestamp when the entry was updated. |
+| UpdatedBy | VARCHAR    | Audit, Length: 20, Nullable      | User who updated the entry.           |
 
 ### Entity: `CurrencyRate`
 
@@ -36,10 +36,10 @@
 | Currency  | INTEGER    | FK, Not null              | Foreign key referencing the currency.    |
 | Date      | DATE       | Not null                 | Date of the currency rate.               |
 | Rate      | DOUBLE     | Not null            | Exchange rate value.                     |
-| CreatedAt | TIMESTAMP  | Audit, Nullable                    | Timestamp when the rate was created.     |
-| CreatedBy | VARCHAR    | Audit, Length: 20, Nullable        | User who created the rate.               |
-| UpdatedAt | TIMESTAMP  | Audit, Nullable                    | Timestamp when the rate was updated.     |
-| UpdatedBy | VARCHAR    | Audit, Length: 20, Nullable        | User who updated the rate.               |
+| CreatedAt | TIMESTAMP  | Audit, Nullable                    | Timestamp when the entry was created.     |
+| CreatedBy | VARCHAR    | Audit, Length: 20, Nullable        | User who created the entry.               |
+| UpdatedAt | TIMESTAMP  | Audit, Nullable                    | Timestamp when the entry was updated.     |
+| UpdatedBy | VARCHAR    | Audit, Length: 20, Nullable        | User who updated the entry.               |
 
 ## 🔗 Sample Data Modules
 
