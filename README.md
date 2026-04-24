@@ -19,7 +19,7 @@
 | Id        | INTEGER    | PK, Identity, Nullable    | Unique identifier for the currency.      |
 | Code      | VARCHAR    | Length: 3, Unique, Not null | Code of the currency (e.g., USD).        |
 | Name      | VARCHAR    | Length: 127, Not null     | Name of the currency.                    |
-| Numberic  | VARCHAR    | Length: 3, Unique, Not null | Numeric code of the currency.            |
+| Numeric  | VARCHAR    | Length: 3, Unique, Not null | Numeric code of the currency.            |
 | Rounding  | INTEGER    | Not null                  | Rounding value for the currency.         |
 | Base      | BOOLEAN    | Nullable                  | Indicates if this is the base currency.  |
 | Rate      | DOUBLE     | Not null                  | Exchange rate of the currency.           |
