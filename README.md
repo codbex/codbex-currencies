@@ -33,7 +33,7 @@
 | Field     | Type       | Details                     | Description                              |
 |-----------| ---------- | --------------------------- | ---------------------------------------- |
 | Id        | INTEGER    | PK, Identity, Nullable      | Unique identifier for the currency rate. |
-| Currency  | INTEGER    | Not null              | Foreign key referencing the currency.    |
+| Currency  | INTEGER    | FK, Not null              | Foreign key referencing the currency.    |
 | Date      | DATE       | Not null                 | Date of the currency rate.               |
 | Rate      | DOUBLE     | Not null            | Exchange rate value.                     |
 | CreatedAt | TIMESTAMP  | Nullable                    | Timestamp when the rate was created.     |
