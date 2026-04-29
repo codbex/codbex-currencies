@@ -1,9 +1,9 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://www.codbex.com/",
-  "title": "Currencies Management Module",
-  "description": "Managing Currencies Data",
+  "brandUrl": "https://www.codbex.com",
+  "title": "Currency Management Application",
+  "description": "Managing currencies data",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",

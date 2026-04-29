@@ -44,7 +44,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsCurrency = params.optionsCurrency;
+			const optionsCurrencyMap = new Map();
+			params.optionsCurrency?.forEach(e => optionsCurrencyMap.set(e.value, e));
+			$scope.optionsCurrency = Array.from(optionsCurrencyMap.values());
 		}
 
 		$scope.create = () => {
@@ -106,6 +108,99 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
+
+		const lastSearchValuesCurrency = new Set();
+		const allValuesCurrency = [];
+		let loadMoreOptionsCurrencyCounter = 0;
+		$scope.optionsCurrencyLoading = false;
+		$scope.optionsCurrencyHasMore = true;
+
+		$scope.loadMoreOptionsCurrency = () => {
+			const limit = 20;
+			$scope.optionsCurrencyLoading = true;
+			$http.get(`/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts?$limit=${limit}&$offset=${++loadMoreOptionsCurrencyCounter * limit}`)
+			.then((response) => {
+				const optionValues = allValuesCurrency.map(e => e.value);
+				const resultValues = response.data.map(e => ({
+					value: e.Id,
+					text: e.Code
+				}));
+				const newValues = [];
+				resultValues.forEach(e => {
+					if (!optionValues.includes(e.value)) {
+						allValuesCurrency.push(e);
+						newValues.push(e);
+					}
+				});
+				newValues.forEach(e => {
+					if (!$scope.optionsCurrency.find(o => o.value === e.value)) {
+						$scope.optionsCurrency.push(e);
+					}
+				})
+				$scope.optionsCurrencyHasMore = resultValues.length > 0;
+				$scope.optionsCurrencyLoading = false;
+			}, (error) => {
+				$scope.optionsCurrencyLoading = false;
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Currency',
+					message: LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+
+		$scope.onOptionsCurrencyChange = (event) => {
+			if (allValuesCurrency.length === 0) {
+				allValuesCurrency.push(...$scope.optionsCurrency);
+			}
+			if (event.originalEvent.target.value === '') {
+				allValuesCurrency.sort((a, b) => a.text.localeCompare(b.text));
+				$scope.optionsCurrency = allValuesCurrency;
+				$scope.optionsCurrencyHasMore = true;
+			} else if (isText(event.which)) {
+				$scope.optionsCurrencyHasMore = false;
+				let cacheHit = false;
+				Array.from(lastSearchValuesCurrency).forEach(e => {
+					if (event.originalEvent.target.value.startsWith(e)) {
+						cacheHit = true;
+					}
+				})
+				if (!cacheHit) {
+					$http.post('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts/search', {
+						conditions: [
+							{ propertyName: 'Code', operator: 'LIKE', value: `${event.originalEvent.target.value}%` }
+						]
+					}).then((response) => {
+						const optionValues = allValuesCurrency.map(e => e.value);
+						const searchResult = response.data.map(e => ({
+							value: e.Id,
+							text: e.Code
+						}));
+						searchResult.forEach(e => {
+							if (!optionValues.includes(e.value)) {
+								allValuesCurrency.push(e);
+							}
+						});
+						$scope.optionsCurrency = allValuesCurrency.filter(e => e.text.toLowerCase().startsWith(event.originalEvent.target.value.toLowerCase()));
+					}, (error) => {
+						console.error(error);
+						const message = error.data ? error.data.message : '';
+						Dialogs.showAlert({
+							title: 'Currency',
+							message: LocaleService.t('codbex-currencies:codbex-currencies-model.messages.error.unableToLoad', { message: message }),
+							type: AlertTypes.Error
+						});
+					});
+					lastSearchValuesCurrency.add(event.originalEvent.target.value);
+				}
+			}
+		};
+		function isText(keycode) {
+			if ((keycode >= 48 && keycode <= 90) || (keycode >= 96 && keycode <= 111) || (keycode >= 186 && keycode <= 222) || [8, 46, 173].includes(keycode)) return true;
+			return false;
+		}
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
