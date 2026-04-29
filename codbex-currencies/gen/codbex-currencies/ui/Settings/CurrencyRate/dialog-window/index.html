@@ -30,8 +30,14 @@
 	                            ng-model="entity.Currency"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsCurrency"
+								ng-keyup="onOptionsCurrencyChange($event)"
 	                            placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputSearch' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCYRATE_CURRENCY)'} }}"
 								btn-aria-label="{{ 'codbex-currencies:codbex-currencies-model.aria.showHide' | t:{'name':'Currency'} }}" list-aria-label="{{ 'codbex-currencies:codbex-currencies-model.aria.options' | t:{'name':'Currency'} }}">
+								    <bk-list-action-item ng-if="optionsCurrencyHasMore" ng-click="loadMoreOptionsCurrency()">
+										<bk-busy-indicator ng-if="optionsCurrencyLoading" size="m"></bk-busy-indicator>
+										<span ng-if="!optionsCurrencyLoading" class="sap-icon sap-icon--navigation-down-arrow" role="presentation"></span>
+										<span ng-if="!optionsCurrencyLoading">More Options</span>
+									</bk-list-action-item>
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
