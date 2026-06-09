@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateController.ts';
+		EntityServiceProvider.baseUrl = '/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyRateController';
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -100,7 +100,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					if (optionsCurrencyHasMore) {
 						const optionsCurrencySearchValues = Array.from(new Set(response.data.map(e => e.Currency)));
 						if (optionsCurrencySearchValues.length > 0) {
-							$http.post('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts/search', {
+							$http.post('/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController/search', {
 								conditions: [
 									{ propertyName: 'Id', operator: 'IN', value: optionsCurrencySearchValues }
 								]
@@ -243,9 +243,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		let optionsCurrencyHasMore = true;
 
-		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts/count').then((response) => {
+		$http.get('/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController/count').then((response) => {
 			const optionsCurrencyCount = response.data.count;
-			$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts').then((response) => {
+			$http.get('/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController').then((response) => {
 				$scope.optionsCurrency = response.data.map(e => ({
 					value: e.Id,
 					text: e.Code

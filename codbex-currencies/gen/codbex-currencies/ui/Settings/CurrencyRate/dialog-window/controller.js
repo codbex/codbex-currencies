@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyRateController.ts';
+		EntityServiceProvider.baseUrl = '/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyRateController';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -90,11 +90,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		};
 
-		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts';
+		$scope.serviceCurrency = '/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController';
 		
 		$scope.optionsCurrency = [];
 		
-		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts').then((response) => {
+		$http.get('/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController').then((response) => {
 			$scope.optionsCurrency = response.data.map(e => ({
 				value: e.Id,
 				text: e.Code
@@ -118,7 +118,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.loadMoreOptionsCurrency = () => {
 			const limit = 20;
 			$scope.optionsCurrencyLoading = true;
-			$http.get(`/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts?$limit=${limit}&$offset=${++loadMoreOptionsCurrencyCounter * limit}`)
+			$http.get(`/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController?$limit=${limit}&$offset=${++loadMoreOptionsCurrencyCounter * limit}`)
 			.then((response) => {
 				const optionValues = allValuesCurrency.map(e => e.value);
 				const resultValues = response.data.map(e => ({
@@ -168,7 +168,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					}
 				})
 				if (!cacheHit) {
-					$http.post('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts/search', {
+					$http.post('/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController/search', {
 						conditions: [
 							{ propertyName: 'Code', operator: 'LIKE', value: `${event.originalEvent.target.value}%` }
 						]
