@@ -1,15 +1,17 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://www.codbex.com",
-  "title": "Currency Management Application",
-  "description": "Managing currencies data",
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Currencies Management Module",
+  "description": "Managing Currencies Data",
   "projectName": "codbex-currencies",
   "workspaceName": "workspace",
   "filePath": "codbex-currencies.model",
-  "templateId": "template-application-angular-v2/template/template.js",
+  "templateId": "template-application-angular-java/template/template.js",
   "fileName": "codbex-currencies",
   "genFolderName": "codbex-currencies",
+  "javaRuntime": true,
+  "javaGenFolderName": "codbex_currencies",
   "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
@@ -66,6 +68,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
           "inputRule": ""
         },
         {
@@ -93,6 +96,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
@@ -122,6 +126,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 127,
           "inputRule": ""
@@ -151,6 +156,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 3,
           "inputRule": ""
@@ -179,6 +185,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
           "inputRule": ""
         },
         {
@@ -205,6 +212,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "boolean",
           "dataTypeTypescript": "boolean",
+          "dataTypeJavaClass": "Boolean",
           "inputRule": ""
         },
         {
@@ -231,6 +239,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Double",
           "inputRule": ""
         },
         {
@@ -257,6 +266,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.Instant",
           "isDateType": true,
           "inputRule": ""
         },
@@ -285,6 +295,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -313,6 +324,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.Instant",
           "isDateType": true,
           "inputRule": ""
         },
@@ -341,6 +353,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -373,6 +386,7 @@
       "tooltip": "Currency",
       "type": "SETTING",
       "dataSource": "DefaultDB",
+      "javaPerspectiveName": "settings",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -406,6 +420,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
           "inputRule": ""
         },
         {
@@ -434,10 +449,11 @@
           "isCalculatedProperty": false,
           "isReadOnlyProperty": false,
           "widgetLabel": "Currency",
-          "widgetDropdownUrl": "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts",
-          "widgetDropdownControllerUrl": "/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts",
+          "widgetDropdownUrl": "/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController",
+          "widgetDropdownControllerUrl": "/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Integer",
           "inputRule": ""
         },
         {
@@ -464,6 +480,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "date",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.LocalDate",
           "isDateType": true,
           "inputRule": ""
         },
@@ -491,6 +508,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
+          "dataTypeJavaClass": "Double",
           "inputRule": ""
         },
         {
@@ -517,6 +535,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.Instant",
           "isDateType": true,
           "inputRule": ""
         },
@@ -545,6 +564,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -573,6 +593,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "timestamp",
           "dataTypeTypescript": "Date",
+          "dataTypeJavaClass": "java.time.Instant",
           "isDateType": true,
           "inputRule": ""
         },
@@ -601,6 +622,7 @@
           "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
+          "dataTypeJavaClass": "String",
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
@@ -631,6 +653,7 @@
       "tooltip": "CurrencyRate",
       "type": "SETTING",
       "dataSource": "DefaultDB",
+      "javaPerspectiveName": "settings",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"

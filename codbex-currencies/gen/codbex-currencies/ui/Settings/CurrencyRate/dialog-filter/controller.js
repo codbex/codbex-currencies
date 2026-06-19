@@ -132,7 +132,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 	$scope.loadMoreOptionsCurrency = () => {
 		const limit = 20;
 		$scope.optionsCurrencyLoading = true;
-		$http.get(`/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts?$limit=${limit}&$offset=${++loadMoreOptionsCurrencyCounter * limit}`)
+		$http.get(`/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController?$limit=${limit}&$offset=${++loadMoreOptionsCurrencyCounter * limit}`)
 		.then((response) => {
 			const optionValues = allValuesCurrency.map(e => e.value);
 			const resultValues = response.data.map(e => ({
@@ -182,7 +182,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 				}
 			})
 			if (!cacheHit) {
-				$http.post('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyController.ts/search', {
+				$http.post('/services/java/codbex-currencies/gen/codbex_currencies/api/settings/CurrencyController/search', {
 					conditions: [
 						{ propertyName: 'Code', operator: 'LIKE', value: `${event.originalEvent.target.value}%` }
 					]
