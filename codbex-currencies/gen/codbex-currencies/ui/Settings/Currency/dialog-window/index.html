@@ -62,6 +62,47 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idSymbol" ng-required="false" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_SYMBOL' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['Symbol'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-currencies:codbex-currencies-model.messages.error.lengthMax' | t:{'max':'5.0'} }}">
+								<bk-input id="idSymbol"
+	                                name="Symbol"
+	                                state="{{ forms.details['Symbol'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.Symbol"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="5.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_SYMBOL)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idIsPrefix" ng-required="true" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_ISPREFIX' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message
+								state="{{ forms.details['IsPrefix'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-currencies:codbex-currencies-model.messages.error.incorrectInput' | t }}">
+								<bk-input id="idIsPrefix"
+	                                name="IsPrefix"
+	                                state="{{ forms.details['IsPrefix'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.IsPrefix"
+	                                ng-readonly="action === 'select'"
+	                                type="text"
+	                                placeholder="{{ 'codbex-currencies:codbex-currencies-model.messages.inputEnter' | t:{'name':'$t(codbex-currencies:codbex-currencies-model.t.CURRENCY_ISPREFIX)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idNumeric" ng-required="true" colon="true">{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_NUMERIC' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2 fd-col--3">

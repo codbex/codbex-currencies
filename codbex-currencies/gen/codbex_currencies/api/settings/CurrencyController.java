@@ -28,7 +28,7 @@ import java.util.Set;
 @Documentation("codbex-currencies - Currency Controller")
 public class CurrencyController {
 
-    private static final Set<String> FILTER_FIELDS = Set.of("Id", "Code", "Name", "Numeric", "Rounding", "Base", "Rate", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
+    private static final Set<String> FILTER_FIELDS = Set.of("Id", "Code", "Name", "Symbol", "IsPrefix", "Numeric", "Rounding", "Base", "Rate", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
 
     @Inject
     private CurrencyRepository repository;
@@ -171,6 +171,12 @@ public class CurrencyController {
         }
         if (entity.Name != null && entity.Name.length() > 127) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The 'Name' exceeds the maximum length of 127");
+        }
+        if (entity.Symbol != null && entity.Symbol.length() > 5) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The 'Symbol' exceeds the maximum length of 5");
+        }
+        if (entity.IsPrefix == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The 'IsPrefix' property is required");
         }
         if (entity.Numeric == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The 'Numeric' property is required");

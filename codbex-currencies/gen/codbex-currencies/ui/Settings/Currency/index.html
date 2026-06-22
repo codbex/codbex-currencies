@@ -27,6 +27,8 @@
 					<tr bk-table-row>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_CODE' | t:'Code' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_NAME' | t:'Name' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_SYMBOL' | t:'Symbol' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_ISPREFIX' | t:'IsPrefix' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_NUMERIC' | t:'Numeric' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_ROUNDING' | t:'Rounding' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-currencies:codbex-currencies-model.t.CURRENCY_BASE' | t:'Base' }}</th>
@@ -46,6 +48,8 @@
 						selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Code}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Symbol}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.IsPrefix}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Numeric}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Rounding}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">

@@ -51,6 +51,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 			const condition = { propertyName: 'Name', operator: 'LIKE', value: `%${entity.Name}%` };
 			filter.$filter.conditions.push(condition);
 		}
+		if (entity.Symbol) {
+			const condition = { propertyName: 'Symbol', operator: 'LIKE', value: `%${entity.Symbol}%` };
+			filter.$filter.conditions.push(condition);
+		}
+		if (entity.IsPrefix !== undefined && entity.isIsPrefixIndeterminate === false) {
+			const condition = { propertyName: 'IsPrefix', operator: 'EQ', value: entity.IsPrefix };
+			filter.$filter.conditions.push(condition);
+		}
 		if (entity.Numeric) {
 			const condition = { propertyName: 'Numeric', operator: 'LIKE', value: `%${entity.Numeric}%` };
 			filter.$filter.conditions.push(condition);
