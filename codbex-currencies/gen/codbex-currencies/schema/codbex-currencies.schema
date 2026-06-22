@@ -25,6 +25,16 @@
                     },
                     {
                         "type": "VARCHAR",
+                        "length": 5,
+                        "nullable": true,
+                        "name": "CURRENCY_SYMBOL"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "name": "CURRENCY_ISPREFIX"
+                    },
+                    {
+                        "type": "VARCHAR",
                         "length": 3,
                         "unique": true,
                         "name": "CURRENCY_NUMERIC"

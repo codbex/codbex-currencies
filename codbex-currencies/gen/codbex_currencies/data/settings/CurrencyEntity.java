@@ -31,6 +31,14 @@ public class CurrencyEntity {
     @Documentation("Name")
     public String Name;
 
+    @Column(name = "CURRENCY_SYMBOL", length = 5, nullable = true)
+    @Documentation("Symbol")
+    public String Symbol;
+
+    @Column(name = "CURRENCY_ISPREFIX", nullable = false)
+    @Documentation("IsPrefix")
+    public Boolean IsPrefix;
+
     @Column(name = "CURRENCY_NUMERIC", length = 3, nullable = false, unique = true)
     @Documentation("Numeric")
     public String Numeric;

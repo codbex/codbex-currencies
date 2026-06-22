@@ -70,6 +70,8 @@
       "CURRENCY_ID": "Id",
       "CURRENCY_CODE": "Code",
       "CURRENCY_NAME": "Name",
+      "CURRENCY_SYMBOL": "Symbol",
+      "CURRENCY_ISPREFIX": "IsPrefix",
       "CURRENCY_NUMERIC": "Numeric",
       "CURRENCY_ROUNDING": "Rounding",
       "CURRENCY_BASE": "Base",
