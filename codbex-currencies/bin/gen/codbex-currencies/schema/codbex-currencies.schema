@@ -1,0 +1,138 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_CURRENCY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "unique": true,
+                        "name": "CURRENCY_CODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 127,
+                        "name": "CURRENCY_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 5,
+                        "nullable": true,
+                        "name": "CURRENCY_SYMBOL"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "name": "CURRENCY_ISPREFIX"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "unique": true,
+                        "name": "CURRENCY_NUMERIC"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "CURRENCY_ROUNDING"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "nullable": true,
+                        "name": "CURRENCY_BASE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "name": "CURRENCY_RATE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCY_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCY_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCY_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCY_UPDATEDBY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CURRENCYRATE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCYRATE_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "CURRENCYRATE_CURRENCY"
+                    },
+                    {
+                        "type": "DATE",
+                        "name": "CURRENCYRATE_DATE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "name": "CURRENCYRATE_RATE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_CREATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCYRATE_CREATEDBY"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CURRENCYRATE_UPDATEDAT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CURRENCYRATE_UPDATEDBY"
+                    }
+                ]
+            },
+            {
+                "name": "CurrencyRate_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_CURRENCYRATE",
+                "constraintName": "CurrencyRate_Currency",
+                "columns": "CURRENCYRATE_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

@@ -5,7 +5,6 @@ import gen.codbex_currencies.data.settings.CurrencyRateRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class CurrencyRateController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Currency", "Date", "Rate", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy");
 
-    @Inject
-    private CurrencyRateRepository repository;
+    private final CurrencyRateRepository repository;
+
+    public CurrencyRateController(CurrencyRateRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List CurrencyRate")
